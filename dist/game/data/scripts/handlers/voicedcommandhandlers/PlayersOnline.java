@@ -37,6 +37,17 @@ public class PlayersOnline implements IVoicedCommandHandler {
 
 	private static final String[] _voicedCommands = { "online", "tradeoffline" };
 
+	private void calcOfflineTraders() {
+		OFFLINE_COUNT = 0;
+
+		final Collection<L2PcInstance> pjs = L2World.getInstance().getPlayers();
+		for (L2PcInstance player : pjs) {
+			if (player.isInOfflineMode()) {
+				OFFLINE_COUNT++;
+			}
+		}
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -54,33 +65,26 @@ public class PlayersOnline implements IVoicedCommandHandler {
 			if (System.currentTimeMillis() > (LAST_UPDATE + (60 * 1000))) {
 				LAST_UPDATE = System.currentTimeMillis();
 				ONLINE_COUNT = L2World.getInstance().getAllPlayersCount();
+
+				calcOfflineTraders();
 			}
 
-			activeChar.sendMessage("===== JUGADORES ONLINE =====");
-			activeChar.sendMessage("Jugadores online: "
-					+ (ONLINE_COUNT * Config.ONLINE_COMMAND_MULTIPLIER));
-			activeChar.sendMessage("============================");
+			activeChar.sendMessage("=== JUGADORES ONLINE ===");
+			activeChar
+					.sendMessage("Jugadores online: "
+							+ ((ONLINE_COUNT + OFFLINE_COUNT) * Config.ONLINE_COMMAND_MULTIPLIER));
 		}
 
 		if (command.equals("tradeoffline")) {
 			// update every minute in order to prevent server overload
 			if (System.currentTimeMillis() > (LAST_UPDATE + (60 * 1000))) {
 				LAST_UPDATE = System.currentTimeMillis();
-				OFFLINE_COUNT = 0;
 
-				final Collection<L2PcInstance> pjs = L2World.getInstance()
-						.getPlayers();
-				for (L2PcInstance player : pjs) {
-					if ((player.getClient() == null)
-							&& player.getClient().isDetached()) {
-						OFFLINE_COUNT++;
-					}
-				}
+				calcOfflineTraders();
 			}
 
-			activeChar.sendMessage("===== JUGADORES EN TRADE OFFLINE =====");
+			activeChar.sendMessage("=== JUGADORES EN TRADE OFFLINE ===");
 			activeChar.sendMessage("Tiendas offline: " + OFFLINE_COUNT);
-			activeChar.sendMessage("======================================");
 		}
 		return true;
 	}
