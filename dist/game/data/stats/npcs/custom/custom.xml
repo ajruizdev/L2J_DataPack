@@ -77,7 +77,7 @@
 			<height normal="22" />
 		</collision>
 	</npc>
-	<npc id="1151600" displayId="1151600" level="85" type="L2Monster" name="Divine" usingServerSideName="true" title="???" usingServerSideTitle="true">
+	<npc id="1151601" displayId="1151600" level="85" type="L2Monster" name="Divine" usingServerSideName="true" title="???" usingServerSideTitle="true">
 		<!-- Confirmed CT2.5 -->
 		<parameters>
 			<param name="IsAggressive" value="1" />
