@@ -58,4 +58,130 @@
 			<height normal="22.25" />
 		</collision>
 	</npc>
+	<npc id="1151600" level="85" displayId="4310" name="Mercader del Abismo" usingServerSideName="true" title="???" usingServerSideTitle="true" type="L2Npc">
+		<sex>MALE</sex>
+		<stats str="50" int="50" dex="50" wit="50" con="50" men="50">
+        <vitals hp="99999999" mp="99999999" />
+        <attack physical="99999999" magical="99999999" attackSpeed="200" range="40" />
+        <defence physical="99999999" magical="99999999" />
+        <attribute>
+            <defence fire="99999999" water="99999999" wind="99999999" earth="99999999" holy="99999999" dark="99999999" />
+        </attribute>
+        <speed>
+            <walk ground="60" />
+            <run ground="160" />
+        </speed>
+    </stats>
+		<collision>
+			<radius normal="8" />
+			<height normal="22" />
+		</collision>
+	</npc>
+	<npc id="1151600" displayId="1151600" level="85" type="L2Monster" name="Divine" usingServerSideName="true" title="???" usingServerSideTitle="true">
+		<!-- Confirmed CT2.5 -->
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="6855" level="1" /> <!-- Magic Strike -->
+			<skill name="Skill02_ID" id="6855" level="1" /> <!-- Magic Strike -->
+		</parameters>
+		<race>UNDEAD</race>
+		<sex>MALE</sex>
+		<acquire expRate="4.0117065" sp="2949" />
+		<stats str="40" int="21" dex="30" wit="20" con="43" men="20">
+			<vitals hp="3643.38976668326" hpRegen="8.5" mp="1743.0" mpRegen="3" />
+			<attack physical="1055.28566004965" magical="720.623302603812" random="30" critical="4" accuracy="5" attackSpeed="253" type="SWORD" range="40" distance="80" width="120" />
+			<defence physical="349.77477" magical="255.95" />
+			<attribute>
+				<attack type="DARK" value="170" />
+				<defence fire="140" water="140" wind="140" earth="140" holy="100" dark="180" default="150" />
+			</attribute>
+			<speed>
+				<walk ground="45" />
+				<run ground="300" />
+			</speed>
+		</stats>
+		<status undying="false" canBeSown="true" />
+		<skillList>
+			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
+			<skill id="4410" level="11" /> <!--Average P. Atk. -->
+			<skill id="4411" level="12" /> <!--Slightly Strong M. Atk. -->
+			<skill id="4412" level="11" /> <!--Average P. Def. -->
+			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4414" level="2" /> <!--Standard Type -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="1" /> <!--Undead -->
+			<skill id="5467" level="1" /> <!--Dark Attacks -->
+			<skill id="6855" level="1" /> <!--Magic Strike -->
+		</skillList>
+		<exCrtEffect>false</exCrtEffect>
+		<ai type="MAGE" aggroRange="300" clanHelpRange="300">
+			<clanList>
+				<clan>VALLEY_NECRO</clan>
+			</clanList>
+		</ai>
+		<dropLists>
+			<death>
+				<group chance="66">
+					<item id="57" min="1712" max="4000" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="0.004100000020116568">
+					<item id="15696" min="1" max="1" chance="34.3532" /> <!-- Sealed Moirai Circlet -->
+					<item id="15697" min="1" max="1" chance="12.8821" /> <!-- Sealed Moirai Breastplate -->
+					<item id="15767" min="1" max="1" chance="52.7647" /> <!-- Sealed Moirai Earring -->
+				</group>
+				<group chance="11.189599990844727">
+					<item id="1895" min="1" max="1" chance="85.1164" /> <!-- Metallic Fiber -->
+					<item id="4040" min="1" max="1" chance="5.9581" /> <!-- Mold Lubricant -->
+					<item id="9628" min="1" max="1" chance="2.3365" /> <!-- Leonard -->
+					<item id="9630" min="1" max="1" chance="1.5679" /> <!-- Orichalcum -->
+					<item id="9573" min="1" max="1" chance="2.0688" /> <!-- Life Stone - Level 80 -->
+					<item id="9574" min="1" max="1" chance="0.5172" /> <!-- Mid-Grade Life Stone - Level 80 -->
+					<item id="9575" min="1" max="1" chance="0.0517" /> <!-- High-Grade Life Stone - Level 80 -->
+					<item id="9549" min="1" max="1" chance="2.3834" /> <!-- Wind Stone -->
+				</group>
+				<group chance="42.0">
+					<item id="8600" min="1" max="1" chance="55" /> <!-- Herb of Life -->
+					<item id="8601" min="1" max="1" chance="38" /> <!-- Greater Herb of Life -->
+					<item id="8602" min="1" max="1" chance="7" /> <!-- Superior Herb of Life -->
+				</group>
+				<group chance="11.0">
+					<item id="8603" min="1" max="1" chance="7" /> <!-- Herb of Mana -->
+					<item id="8604" min="1" max="1" chance="81" /> <!-- Greater Herb of Mana -->
+					<item id="8605" min="1" max="1" chance="12" /> <!-- Superior Herb of Mana -->
+				</group>
+				<group chance="25.0">
+					<item id="8606" min="1" max="1" chance="20" /> <!-- Herb of Power -->
+					<item id="8608" min="1" max="1" chance="20" /> <!-- Herb of Alacrity -->
+					<item id="8610" min="1" max="1" chance="20" /> <!-- Herb of Critical Attack - Probability -->
+					<item id="10655" min="1" max="1" chance="20" /> <!-- Herb of Vampiric Rage -->
+					<item id="10656" min="1" max="1" chance="20" /> <!-- Herb of Critical Attack - Power -->
+				</group>
+				<group chance="10.0">
+					<item id="8607" min="1" max="1" chance="50" /> <!-- Herb of Magic -->
+					<item id="8609" min="1" max="1" chance="50" /> <!-- Herb of Casting Spd. -->
+				</group>
+				<group chance="1.0">
+					<item id="8612" min="1" max="1" chance="33" /> <!-- Herb of the Warrior -->
+					<item id="8613" min="1" max="1" chance="33" /> <!-- Herb of the Mystic -->
+					<item id="8614" min="1" max="1" chance="34" /> <!-- Herb of Recovery -->
+				</group>
+				<group chance="11.0">
+					<item id="8611" min="1" max="1" chance="94" /> <!-- Herb of Speed -->
+					<item id="10657" min="1" max="1" chance="3" /> <!-- Herb of Doubt -->
+					<item id="13028" min="1" max="1" chance="3" /> <!-- Vitality Replenishing Herb -->
+				</group>
+			</death>
+			<corpse>
+				<item id="4039" min="1" max="1" chance="13.5339" /> <!-- Mold Glue -->
+				<item id="9628" min="1" max="1" chance="3.1844" /> <!-- Leonard -->
+				<item id="10404" min="1" max="1" chance="0.1735" /> <!-- Icarus Hall Piece -->
+				<item id="15780" min="1" max="1" chance="0.1608" /> <!-- Recipe - Sealed Moirai Tunic (60%) -->
+			</corpse>
+		</dropLists>
+		<collision>
+			<radius normal="16" />
+			<height normal="45" />
+		</collision>
+	</npc>
 </list>
