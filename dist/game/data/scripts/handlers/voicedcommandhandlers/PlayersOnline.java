@@ -62,7 +62,7 @@ public class PlayersOnline implements IVoicedCommandHandler {
 			String params) {
 		if (command.equals("online")) {
 			// update every minute in order to prevent server overload
-			if (System.currentTimeMillis() > (LAST_UPDATE + (60 * 1000))) {
+			if (System.currentTimeMillis() > (LAST_UPDATE + (10 * 1000))) {
 				LAST_UPDATE = System.currentTimeMillis();
 				ONLINE_COUNT = L2World.getInstance().getAllPlayersCount();
 
