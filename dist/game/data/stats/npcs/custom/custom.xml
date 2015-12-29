@@ -77,7 +77,26 @@
 			<height normal="22" />
 		</collision>
 	</npc>
-	<npc id="1151601" displayId="1151600" level="85" type="L2Monster" name="Divine" usingServerSideName="true" title="???" usingServerSideTitle="true">
+	<npc id="1151602" level="85" displayId="13116" name="Divine Exiliado" usingServerSideName="true" title="Buffer Legendario" usingServerSideTitle="true" type="L2Npc">
+		<sex>MALE</sex>
+		<stats str="50" int="50" dex="50" wit="50" con="50" men="50">
+        <vitals hp="99999999" mp="99999999" />
+        <attack physical="99999999" magical="99999999" attackSpeed="200" range="40" />
+        <defence physical="99999999" magical="99999999" />
+        <attribute>
+            <defence fire="99999999" water="99999999" wind="99999999" earth="99999999" holy="99999999" dark="99999999" />
+        </attribute>
+        <speed>
+            <walk ground="60" />
+            <run ground="160" />
+        </speed>
+    </stats>
+		<collision>
+			<radius normal="8" />
+			<height normal="24" />
+		</collision>
+	</npc>
+	<npc id="1151603" displayId="1151600" level="85" type="L2Monster" name="Divine" usingServerSideName="true" title="???" usingServerSideTitle="true">
 		<!-- Confirmed CT2.5 -->
 		<parameters>
 			<param name="IsAggressive" value="1" />
