@@ -99,4 +99,15 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
+	<item id="1000001" type="EtcItem" name="Moneda Abisal">
+			<set name="icon" val="icon.etc_gold_knight_i00" />
+			<set name="immediate_effect" val="true" />
+			<set name="material" val="PAPER" />
+			<set name="is_tradable" val="false" />
+			<set name="is_dropable" val="false" />
+			<set name="is_sellable" val="false" />
+			<set name="is_depositable" val="false" />
+			<set name="is_stackable" val="true" />
+			<set name="is_questitem" val="false" />
+	</item>
 </list>
