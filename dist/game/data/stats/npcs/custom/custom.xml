@@ -59,6 +59,7 @@
 		</collision>
 	</npc>
 	<npc id="1151600" level="85" displayId="4310" name="Mercader del Abismo" usingServerSideName="true" title="???" usingServerSideTitle="true" type="L2Npc">
+		<!-- L2Abyss.NET -->
 		<sex>MALE</sex>
 		<stats str="50" int="50" dex="50" wit="50" con="50" men="50">
         <vitals hp="99999999" mp="99999999" />
@@ -78,6 +79,7 @@
 		</collision>
 	</npc>
 	<npc id="1151602" level="85" displayId="13116" name="Divine Exiliado" usingServerSideName="true" title="Buffer Legendario" usingServerSideTitle="true" type="L2Npc">
+		<!-- L2Abyss.NET -->
 		<sex>MALE</sex>
 		<stats str="50" int="50" dex="50" wit="50" con="50" men="50">
         <vitals hp="99999999" mp="99999999" />
@@ -97,7 +99,7 @@
 		</collision>
 	</npc>
 	<npc id="1151603" displayId="1151600" level="85" type="L2Monster" name="Divine" usingServerSideName="true" title="???" usingServerSideTitle="true">
-		<!-- Confirmed CT2.5 -->
+		<!-- L2Abyss.NET -->
 		<parameters>
 			<param name="IsAggressive" value="1" />
 			<skill name="Skill01_ID" id="6855" level="1" /> <!-- Magic Strike -->
