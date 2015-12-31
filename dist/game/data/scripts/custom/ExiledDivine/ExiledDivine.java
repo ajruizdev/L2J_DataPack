@@ -149,7 +149,7 @@ public class ExiledDivine extends AbstractNpcAI {
 				case "pay1":
 					player.getInventory().destroyItemByItemId("ExiledDivine",
 							ABYSSAL_COIN_ID, 1, player, null);
-					player.sendMessage("Has entregado 1 Moneda Abisal");
+					player.sendMessage("Has entregado 1 Moneda Abisal al Divine Exiliado.");
 					PLAYER_PAID.replace(player.getObjectId(), true);
 					return getHtm(player.getHtmlPrefix(), NPC_ID + ".htm");
 				case "pay5":
