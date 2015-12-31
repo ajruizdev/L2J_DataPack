@@ -18,6 +18,9 @@
  */
 package custom.ExiledDivine;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,7 +48,7 @@ public class ExiledDivine extends AbstractNpcAI {
 
 	private static final int NOBLESSE_BLESSING = 1323; // max lvl 1
 
-	private static boolean hasPayed = false;
+	private static final Map<Integer, Boolean> PLAYER_PAID = new HashMap<Integer, Boolean>();
 
 	private static final int[][] MAGE_BUFFS = {
 			// skill id - lvl
@@ -109,14 +112,22 @@ public class ExiledDivine extends AbstractNpcAI {
 
 	@Override
 	public String onFirstTalk(L2Npc npc, L2PcInstance player) {
+
+		// set value false for current player if it is not listed
+		if (!PLAYER_PAID.containsKey(player.getObjectId())) {
+			PLAYER_PAID.put(player.getObjectId(), false);
+		}
+
+		// check if npc is casting on other player in order to
+		// prevent a target change
 		if (npc.isCastingNow()) {
 			broadcastNpcSay(npc, Say2.NPC_ALL, "Lo siento " + player.getName()
-					+ ", ahora mismo estoy ocupado...");
+					+ ", ahora mismo estoy ocupado!");
 			return "";
 		}
 
 		String html = "";
-		if (player.isVip()) {
+		if (player.isVip() || PLAYER_PAID.get(player.getObjectId())) {
 			html = getHtm(player.getHtmlPrefix(), NPC_ID + ".htm");
 		} else {
 			html = getHtm(player.getHtmlPrefix(), "novip.htm");
@@ -129,7 +140,7 @@ public class ExiledDivine extends AbstractNpcAI {
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
 
 		if (npc.isInsideRadius(player, 200, false, true)) {
-			if (!player.isVip() && !hasPayed) {
+			if (!player.isVip() && !PLAYER_PAID.get(player.getObjectId())) {
 				if (!(player.getInventory().getInventoryItemCount(
 						ABYSSAL_COIN_ID, -1) >= 1)) {
 					return getHtm(player.getHtmlPrefix(), "nocoin.htm");
@@ -138,7 +149,8 @@ public class ExiledDivine extends AbstractNpcAI {
 				case "pay1":
 					player.getInventory().destroyItemByItemId("ExiledDivine",
 							ABYSSAL_COIN_ID, 1, player, null);
-					hasPayed = true;
+					player.sendMessage("Has entregado 1 Moneda Abisal");
+					PLAYER_PAID.replace(player.getObjectId(), true);
 					return getHtm(player.getHtmlPrefix(), NPC_ID + ".htm");
 				case "pay5":
 					return getHtm(player.getHtmlPrefix(), "todo.htm");
@@ -154,17 +166,17 @@ public class ExiledDivine extends AbstractNpcAI {
 				castBuffs("warrior", npc, player);
 				break;
 			}
+			PLAYER_PAID.replace(player.getObjectId(), false);
 		}
-		hasPayed = false;
 		return super.onAdvEvent(event, npc, player);
 	}
 
 	private void castBuffs(String type, L2Npc npc, L2PcInstance player) {
+		// noblesse blessing is shared with both
+		npc.setTarget(player);
+		npc.doCast(SkillData.getInstance().getSkill(NOBLESSE_BLESSING, 1));
+
 		switch (type) {
-		default:
-			npc.setTarget(player);
-			npc.doCast(SkillData.getInstance().getSkill(NOBLESSE_BLESSING, 1));
-			// next
 		case "mage":
 			for (int[] skill : MAGE_BUFFS) {
 				SkillData.getInstance().getSkill(skill[0], skill[1])
