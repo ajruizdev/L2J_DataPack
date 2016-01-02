@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory;
 
 import ai.npc.AbstractNpcAI;
 
+import com.l2jserver.gameserver.data.xml.impl.MultisellData;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
@@ -42,6 +43,8 @@ public class MerchantOfAbyss extends AbstractNpcAI {
 	private static final int NPC_ID = 1151600;
 	// abyssal coin
 	private static final int ABYSSAL_COIN_ID = 1000001;
+
+	// config
 
 	/**
 	 * @param name
@@ -70,13 +73,10 @@ public class MerchantOfAbyss extends AbstractNpcAI {
 		switch (event) {
 		case "buy":
 			if (npc.isInsideRadius(player, 300, false, true)) {
-				player.setKarma(500);
+				// player.setKarma(player.getKarma() + 100);
 				if (player.getInventory().getInventoryItemCount(
 						ABYSSAL_COIN_ID, -1) > 0) {
-					broadcastNpcSay(
-							npc,
-							Say2.NPC_ALL,
-							"No tengo nada que vender por ahora miserable mortal. Vuelve en otro momento...");
+					return getHtm(player.getHtmlPrefix(), NPC_ID + "-buy.htm");
 				} else {
 					broadcastNpcSay(npc, Say2.NPC_ALL,
 							"No tienes nada que me interese miserable... Muere!");
@@ -84,7 +84,60 @@ public class MerchantOfAbyss extends AbstractNpcAI {
 				}
 			}
 			break;
+		case "buy-a":
+			MultisellData.getInstance().separateAndSend(364990002, player, npc,
+					false);
+			break;
+		case "buy-jew-a":
+			MultisellData.getInstance().separateAndSend(364990005, player, npc,
+					false);
+			break;
+		case "buy-s":
+			MultisellData.getInstance().separateAndSend(364990001, player, npc,
+					false);
+			break;
+		case "buy-jew-s":
+			MultisellData.getInstance().separateAndSend(364990004, player, npc,
+					false);
+			break;
+		case "buy-s80":
+			MultisellData.getInstance().separateAndSend(364990003, player, npc,
+					false);
+			break;
+		case "buy-jew-s80":
+			MultisellData.getInstance().separateAndSend(364990006, player, npc,
+					false);
+			break;
+		case "buy-mounts":
+			MultisellData.getInstance().separateAndSend(364990007, player, npc,
+					false);
+			break;
+		case "buy-aga":
+			MultisellData.getInstance().separateAndSend(364990008, player, npc,
+					false);
+			break;
+		case "buy-acc":
+			MultisellData.getInstance().separateAndSend(364990009, player, npc,
+					false);
+			break;
+		case "karma":
+			if (player.getInventory()
+					.getInventoryItemCount(ABYSSAL_COIN_ID, -1) > 0) {
+				player.getInventory().destroyItemByItemId("MerchantOfAbyss",
+						ABYSSAL_COIN_ID, 1, player, null);
+				player.sendMessage("Has entregado 1 Moneda Abisal al Mercader del Abismo.");
+				player.setKarma(0);
+				broadcastNpcSay(npc, Say2.NPC_ALL,
+						"Trato hecho... ya no te busca nadie! JAJAJA...");
+			} else {
+				broadcastNpcSay(npc, Say2.NPC_ALL,
+						"Pretendes engañarme? JAJAJA... Muere!");
+				npc.doAttack(player);
+			}
+			break;
 		case "who":
+			broadcastNpcSay(npc, Say2.NPC_ALL,
+					"La respuesta a esa pregunta vale mas que tu vida... Muere!");
 			npc.doAttack(player);
 			break;
 
