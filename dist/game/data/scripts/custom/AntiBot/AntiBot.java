@@ -66,6 +66,8 @@ public class AntiBot extends AbstractNpcAI {
 		public void run() {
 			if (_player != null) {
 				_player.logout(true);
+				LOG.info("L2Abyss.NET - Anti Bot: jugador ["
+						+ _player.getName() + "] ha sido kickeado!");
 			}
 		}
 	}
@@ -79,6 +81,9 @@ public class AntiBot extends AbstractNpcAI {
 						"BOT_KICK_TASK",
 						ThreadPoolManager.getInstance().scheduleAi(
 								new BotKickTask(killer), TIME * 1000 * 60));
+
+				LOG.info("L2Abyss.NET - Anti Bot: jugador [" + killer.getName()
+						+ "] ha sido preguntado.");
 
 				// Anti Bot window:
 				return "antibot.htm";
