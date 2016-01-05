@@ -309,8 +309,10 @@ public final class Q00503_PursuitOfClanAmbition extends Quest
 			}
 			case "SPAWN_WITCH":
 			{
-				addSpawn(WITCH_ATHREA, 160688, 21296, -3714, 0, false, 5000);
-				addSpawn(WITCH_KALIS, 160690, 21176, -3712, 0, false, 5000);
+				L2Npc npcAthrea = addSpawn(WITCH_ATHREA, 160688, 21296, -3714, 0, false, 180000);
+				npcAthrea.broadcastPacket(new NpcSay(npcAthrea, Say2.NPC_ALL, NpcStringId.WAR_AND_DEATH));
+				L2Npc npcKalis = addSpawn(WITCH_KALIS, 160690, 21176, -3712, 0, false, 180000);
+				npcKalis.broadcastPacket(new NpcSay(npcKalis, Say2.NPC_ALL, NpcStringId.AMBITION_AND_POWER));
 				break;
 			}
 		}
@@ -803,18 +805,6 @@ public final class Q00503_PursuitOfClanAmbition extends Quest
 	{
 		switch (npc.getId())
 		{
-			case WITCH_ATHREA:
-			{
-				startQuestTimer("DESPAWN_WITCH_ATHREA", 5000, npc, null);
-				npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.WAR_AND_DEATH));
-				break;
-			}
-			case WITCH_KALIS:
-			{
-				startQuestTimer("DESPAWN_WITCH_KALIS", 5000, npc, null);
-				npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.AMBITION_AND_POWER));
-				break;
-			}
 			case IMPERIAL_COFFER:
 			{
 				startQuestTimer("DESPAWN_IMPERIAL_COFFER", 180000, npc, null);
