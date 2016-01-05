@@ -76,7 +76,7 @@ public class Q00144_PailakaInjuredDragon extends Quest {
 
 	// Rewards
 	private static final int PSHIRT = 13296;
-	private static final int SCROLL_OF_ESCAPE = 13129;
+	private static final int SCROLL_OF_ESCAPE = 736;
 
 	private static final String EMPTY = "<html><body>You are either not on a quest that involves this NPC, or you don't meet this NPC's minimum quest requirements.</body></html>";
 
