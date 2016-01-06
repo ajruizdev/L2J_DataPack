@@ -18,6 +18,9 @@
  */
 package custom.MerchantOfAbyss;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,8 +46,10 @@ public class MerchantOfAbyss extends AbstractNpcAI {
 	private static final int NPC_ID = 1151600;
 	// abyssal coin
 	private static final int ABYSSAL_COIN_ID = 1000001;
+	private static final int BIRTHDAY_VITALITY_POTION = 22188;
 
-	// config
+	// list of players who got vita potions from Merchant of Abyss
+	private static final Map<Integer, Long> PLAYER_LAST_TIME_GOT_VITA = new HashMap<Integer, Long>();
 
 	/**
 	 * @param name
@@ -62,6 +67,10 @@ public class MerchantOfAbyss extends AbstractNpcAI {
 
 	@Override
 	public String onFirstTalk(L2Npc npc, L2PcInstance player) {
+		// if player is not in the list, add it
+		if (!PLAYER_LAST_TIME_GOT_VITA.containsKey(player.getObjectId())) {
+			PLAYER_LAST_TIME_GOT_VITA.put(player.getObjectId(), 0L);
+		}
 		broadcastNpcSay(npc, Say2.NPC_ALL,
 				"Habla rapido y cuida tus palabras, pues te pueden costar la vida...");
 		String html = getHtm(player.getHtmlPrefix(), NPC_ID + ".htm");
@@ -119,6 +128,35 @@ public class MerchantOfAbyss extends AbstractNpcAI {
 		case "buy-acc":
 			MultisellData.getInstance().separateAndSend(364990009, player, npc,
 					false);
+			break;
+		case "vitality":
+			return getHtm(player.getHtmlPrefix(), NPC_ID + "-vita.htm");
+		case "buy-vita":
+			// if player bought vita potion to MOA less than 24 hours ago
+			// do not sell anymore
+			if ((PLAYER_LAST_TIME_GOT_VITA.get(player.getObjectId()) + 86400000) > System
+					.currentTimeMillis()) {
+				broadcastNpcSay(npc, Say2.NPC_ALL,
+						"No tengo mas pociones por ahora...");
+				return "";
+			}
+			if (player.getInventory()
+					.getInventoryItemCount(ABYSSAL_COIN_ID, -1) >= 25) {
+				player.getInventory().destroyItemByItemId("MerchantOfAbyss",
+						ABYSSAL_COIN_ID, 25, player, null);
+				player.sendMessage("Has entregado 25 Moneda Abisal al Mercader del Abismo.");
+				player.getInventory().addItem("MerchantOfAbyss",
+						BIRTHDAY_VITALITY_POTION, 1, player, null);
+				// update last time player got vita potion
+				PLAYER_LAST_TIME_GOT_VITA.replace(player.getObjectId(),
+						System.currentTimeMillis());
+				broadcastNpcSay(npc, Say2.NPC_ALL,
+						"Trato hecho, aqui tienes...");
+			} else {
+				broadcastNpcSay(npc, Say2.NPC_ALL,
+						"Pretendes engañarme? JAJAJA... Muere!");
+				npc.doAttack(player);
+			}
 			break;
 		case "karma":
 			if (player.getInventory()
