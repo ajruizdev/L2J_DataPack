@@ -42,14 +42,22 @@ public class MerchantOfAbyss extends AbstractNpcAI {
 	// logger
 	private static final Logger LOG = LoggerFactory
 			.getLogger(MerchantOfAbyss.class);
-	// npc
+	// npc - merchant of abyss
 	private static final int NPC_ID = 1151600;
 	// abyssal coin
 	private static final int ABYSSAL_COIN_ID = 1000001;
-	private static final int BIRTHDAY_VITALITY_POTION = 22188;
+	// vitality potion
+	private static final int BIRTHDAY_VITALITY_POTION_ID = 22188;
 
 	// list of players who got vita potions from Merchant of Abyss
 	private static final Map<Integer, Long> PLAYER_LAST_TIME_GOT_VITA = new HashMap<Integer, Long>();
+
+	/**
+	 * Config parameters Price in Abyssal Coins
+	 */
+	private static final int VITA_POTION_PRICE = 15;
+	private static final int VITA_POTION_QUANTITY = 1;
+	private static final int CLEAN_UP_KARMA_PRICE = 1;
 
 	/**
 	 * @param name
@@ -141,12 +149,14 @@ public class MerchantOfAbyss extends AbstractNpcAI {
 				return "";
 			}
 			if (player.getInventory()
-					.getInventoryItemCount(ABYSSAL_COIN_ID, -1) >= 25) {
+					.getInventoryItemCount(ABYSSAL_COIN_ID, -1) >= VITA_POTION_PRICE) {
 				player.getInventory().destroyItemByItemId("MerchantOfAbyss",
-						ABYSSAL_COIN_ID, 25, player, null);
-				player.sendMessage("Has entregado 25 Moneda Abisal al Mercader del Abismo.");
+						ABYSSAL_COIN_ID, VITA_POTION_PRICE, player, null);
+				player.sendMessage("Has entregado " + VITA_POTION_PRICE
+						+ " Moneda Abisal al Mercader del Abismo.");
 				player.getInventory().addItem("MerchantOfAbyss",
-						BIRTHDAY_VITALITY_POTION, 1, player, null);
+						BIRTHDAY_VITALITY_POTION_ID, VITA_POTION_QUANTITY,
+						player, null);
 				// update last time player got vita potion
 				PLAYER_LAST_TIME_GOT_VITA.replace(player.getObjectId(),
 						System.currentTimeMillis());
@@ -162,8 +172,9 @@ public class MerchantOfAbyss extends AbstractNpcAI {
 			if (player.getInventory()
 					.getInventoryItemCount(ABYSSAL_COIN_ID, -1) > 0) {
 				player.getInventory().destroyItemByItemId("MerchantOfAbyss",
-						ABYSSAL_COIN_ID, 1, player, null);
-				player.sendMessage("Has entregado 1 Moneda Abisal al Mercader del Abismo.");
+						ABYSSAL_COIN_ID, CLEAN_UP_KARMA_PRICE, player, null);
+				player.sendMessage("Has entregado " + CLEAN_UP_KARMA_PRICE
+						+ " Moneda Abisal al Mercader del Abismo.");
 				player.setKarma(0);
 				broadcastNpcSay(npc, Say2.NPC_ALL,
 						"Trato hecho... ya no te busca nadie! JAJAJA...");
