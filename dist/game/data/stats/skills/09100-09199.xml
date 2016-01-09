@@ -339,7 +339,7 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<for>
-			<effect name="GiveRecommendation">
+			<effect name="AddRecommendationLeft">
 				<param amount="10" />
 			</effect>
 		</for>

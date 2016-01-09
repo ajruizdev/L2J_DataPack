@@ -37,6 +37,7 @@ public final class EffectMasterHandler
 	private static final Class<?>[] EFFECTS =
 	{
 		AddHate.class,
+		AddRecommendationLeft.class,
 		AttackTrait.class,
 		Backstab.class,
 		Betray.class,
