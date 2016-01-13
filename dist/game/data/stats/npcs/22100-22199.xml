@@ -3171,7 +3171,6 @@
 				<defence fire="20" water="20" wind="20" earth="20" holy="-83" dark="103" />
 			</attribute>
 			<speed>
-				<walk ground="33" />
 				<run ground="120" />
 			</speed>
 			<hitTime>430</hitTime>
@@ -3193,7 +3192,7 @@
 		</skillList>
 		<exCrtEffect>false</exCrtEffect>
 		<sNpcPropHpRate>4</sNpcPropHpRate>
-		<ai type="BALANCED" aggroRange="300" clanHelpRange="1000">
+		<ai type="BALANCED" clanHelpRange="1000">
 			<clanList>
 				<clan>TRIOLL</clan>
 			</clanList>
@@ -3225,7 +3224,6 @@
 				<defence fire="20" water="20" wind="20" earth="20" holy="-83" dark="103" />
 			</attribute>
 			<speed>
-				<walk ground="33" />
 				<run ground="120" />
 			</speed>
 			<hitTime>430</hitTime>
@@ -3248,7 +3246,7 @@
 		</skillList>
 		<exCrtEffect>true</exCrtEffect>
 		<sNpcPropHpRate>0.5</sNpcPropHpRate>
-		<ai aggroRange="200" clanHelpRange="300">
+		<ai clanHelpRange="300">
 			<clanList>
 				<clan>ALL</clan>
 			</clanList>
@@ -3305,7 +3303,6 @@
 				<defence fire="20" water="20" wind="20" earth="20" holy="-83" dark="103" />
 			</attribute>
 			<speed>
-				<walk ground="33" />
 				<run ground="120" />
 			</speed>
 			<hitTime>430</hitTime>
@@ -3328,7 +3325,7 @@
 		</skillList>
 		<exCrtEffect>true</exCrtEffect>
 		<sNpcPropHpRate>0.5</sNpcPropHpRate>
-		<ai aggroRange="200" clanHelpRange="300">
+		<ai clanHelpRange="300">
 			<clanList>
 				<clan>ALL</clan>
 			</clanList>
