@@ -3171,6 +3171,7 @@
 				<defence fire="20" water="20" wind="20" earth="20" holy="-83" dark="103" />
 			</attribute>
 			<speed>
+				<walk ground="33" />
 				<run ground="120" />
 			</speed>
 			<hitTime>430</hitTime>
@@ -3224,6 +3225,7 @@
 				<defence fire="20" water="20" wind="20" earth="20" holy="-83" dark="103" />
 			</attribute>
 			<speed>
+				<walk ground="33" />
 				<run ground="120" />
 			</speed>
 			<hitTime>430</hitTime>
@@ -3303,6 +3305,7 @@
 				<defence fire="20" water="20" wind="20" earth="20" holy="-83" dark="103" />
 			</attribute>
 			<speed>
+				<walk ground="33" />
 				<run ground="120" />
 			</speed>
 			<hitTime>430</hitTime>
