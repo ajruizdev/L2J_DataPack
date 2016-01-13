@@ -101,14 +101,6 @@ public class MerchantOfAbyss extends AbstractNpcAI {
 				}
 			}
 			break;
-		case "buy-a":
-			MultisellData.getInstance().separateAndSend(364990002, player, npc,
-					false);
-			break;
-		case "buy-jew-a":
-			MultisellData.getInstance().separateAndSend(364990005, player, npc,
-					false);
-			break;
 		case "buy-s":
 			MultisellData.getInstance().separateAndSend(364990001, player, npc,
 					false);
@@ -123,6 +115,14 @@ public class MerchantOfAbyss extends AbstractNpcAI {
 			break;
 		case "buy-jew-s80":
 			MultisellData.getInstance().separateAndSend(364990006, player, npc,
+					false);
+			break;
+		case "buy-s84":
+			MultisellData.getInstance().separateAndSend(364990002, player, npc,
+					false);
+			break;
+		case "buy-jew-s84":
+			MultisellData.getInstance().separateAndSend(364990005, player, npc,
 					false);
 			break;
 		case "buy-mounts":

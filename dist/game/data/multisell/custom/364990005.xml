@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mercader del Abismo (S84 joyeria) -->
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+<npcs>
+<npc>1151600</npc>
+</npcs>
+	<item>
+		<ingredient count="40" id="1000001" />
+		<production count="1" id="15717" />
+	</item>
+	<item>
+		<ingredient count="60" id="1000001" />
+		<production count="1" id="15718" />
+	</item>
+	<item>
+		<ingredient count="100" id="1000001" />
+		<production count="1" id="15719" />
+	</item>
+	
+</list>

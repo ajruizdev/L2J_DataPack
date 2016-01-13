@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mercader del Abismo (Monturas) -->
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+<npcs>
+<npc>1151600</npc>
+</npcs>
+	<item>
+		<ingredient count="20" id="1000001" />
+		<production count="1" id="20029" />
+	</item>
+	<item>
+		<ingredient count="20" id="1000001" />
+		<production count="1" id="20396" />
+	</item>
+	<item>
+		<ingredient count="20" id="1000001" />
+		<production count="1" id="21088" />
+	</item>
+	<item>
+		<ingredient count="20" id="1000001" />
+		<production count="1" id="21407" />
+	</item>
+</list>

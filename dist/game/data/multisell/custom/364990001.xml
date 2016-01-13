@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mercader del Abismo (Grado S) -->
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+<npcs>
+<npc>1151600</npc>
+</npcs>
+	<item>
+		<ingredient count="30" id="1000001" />
+		<production count="1" id="9432" />
+	</item>
+	<item>
+		<ingredient count="25" id="1000001" />
+		<production count="1" id="9437" />
+	</item>
+	<item>
+		<ingredient count="15" id="1000001" />
+		<production count="1" id="9438" />
+	</item>
+	<item>
+		<ingredient count="15" id="1000001" />
+		<production count="1" id="9439" />
+	</item>
+	<item>
+		<ingredient count="15" id="1000001" />
+		<production count="1" id="9440" />
+	</item>
+	<item>
+		<ingredient count="30" id="1000001" />
+		<production count="1" id="9416" />
+	</item>
+	<item>
+		<ingredient count="25" id="1000001" />
+		<production count="1" id="9421" />
+	</item>
+	<item>
+		<ingredient count="15" id="1000001" />
+		<production count="1" id="9422" />
+	</item>
+	<item>
+		<ingredient count="15" id="1000001" />
+		<production count="1" id="9423" />
+	</item>
+	<item>
+		<ingredient count="15" id="1000001" />
+		<production count="1" id="9424" />
+	</item>
+	<item>
+		<ingredient count="15" id="1000001" />
+		<production count="1" id="9441" />
+	</item>
+	<item>
+		<ingredient count="30" id="1000001" />
+		<production count="1" id="9425" />
+	</item>
+	<item>
+		<ingredient count="25" id="1000001" />
+		<production count="1" id="9428" />
+	</item>
+	<item>
+		<ingredient count="15" id="1000001" />
+		<production count="1" id="9429" />
+	</item>
+	<item>
+		<ingredient count="15" id="1000001" />
+		<production count="1" id="9430" />
+	</item>
+	<item>
+		<ingredient count="15" id="1000001" />
+		<production count="1" id="9431" />
+	</item>
+	<!-- Mercader del Abismo (Grado S Armas) -->
+	
+	<item>
+		<ingredient count="50" id="1000001" />
+		<production count="1" id="6369" />
+	</item>
+	<item>
+		<ingredient count="50" id="1000001" />
+		<production count="1" id="6366" />
+	</item>
+	<item>
+		<ingredient count="50" id="1000001" />
+		<production count="1" id="6367" />
+	</item>
+	<item>
+		<ingredient count="50" id="1000001" />
+		<production count="1" id="6372" />
+	</item>
+	<item>
+		<ingredient count="50" id="1000001" />
+		<production count="1" id="6371" />
+	</item>
+	<item>
+		<ingredient count="50" id="1000001" />
+		<production count="1" id="6370" />
+	</item>
+	<item>
+		<ingredient count="50" id="1000001" />
+		<production count="1" id="6365" />
+	</item>
+	<item>
+		<ingredient count="50" id="1000001" />
+		<production count="1" id="6364" />
+	</item>
+	<item>
+		<ingredient count="50" id="1000001" />
+		<production count="1" id="6579" />
+	</item>
+	<item>
+		<ingredient count="50" id="1000001" />
+		<production count="1" id="7575" />
+	</item>
+</list>
