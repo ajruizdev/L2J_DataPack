@@ -6,15 +6,15 @@
 </npcs>
 	<item>
 		<ingredient count="40" id="1000001" />
-		<production count="1" id="15717" />
+		<production count="1" id="14165" />
 	</item>
 	<item>
 		<ingredient count="60" id="1000001" />
-		<production count="1" id="15718" />
+		<production count="1" id="14163" />
 	</item>
 	<item>
 		<ingredient count="100" id="1000001" />
-		<production count="1" id="15719" />
+		<production count="1" id="14164" />
 	</item>
 	
 </list>

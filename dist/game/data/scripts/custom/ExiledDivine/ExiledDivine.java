@@ -29,6 +29,7 @@ import ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.datatables.SkillData;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
 
 /**
@@ -55,49 +56,67 @@ public class ExiledDivine extends AbstractNpcAI {
 			{ 1040, 3 }, // shield
 			{ 1035, 4 }, // mental shield
 			{ 1062, 2 }, // berserker
-			{ 1204, 2 }, // wind walk
 			{ 1085, 3 }, // acumen
 			{ 1078, 6 }, // concentration
-			{ 1036, 2 }, // magic barrier
-			{ 1045, 6 }, // blessed body
-			{ 1048, 6 }, // blessed soul
 			{ 1389, 3 }, // greater shield
 			{ 1043, 1 }, // holy weapon
-			{ 1059, 3 }, // empower
 			{ 1303, 2 }, // wild magic
 			{ 1354, 1 }, // arcane protection
-			{ 273, 1 }, // dance of mystic
-			{ 276, 1 }, // dance of concentration
 			{ 1257, 3 }, // decrease weight
 			{ 1259, 4 }, // resist shock
 			{ 1397, 3 }, // clarity
+			// improved buffs
+			{ 1500, 1 }, // Improved Magic
+			{ 1501, 1 }, // Improved Condition
+			{ 1504, 1 }, // Improved Movement
+			// dances
+			{ 273, 1 }, // dance of mystic
+			{ 276, 1 }, // dance of concentration
+			{ 307, 1 }, // Dance of Aqua Guard
+			{ 309, 1 }, // Dance of Earth Guard
+			{ 365, 1 }, // Dance of Siren
+			// songs
 			{ 264, 1 }, // song of earth
 			{ 267, 1 }, // song of warding
+			{ 268, 1 }, // Song of Wind
+			{ 265, 1 }, // Song of Life
+			{ 304, 1 }, // Song of Vitality
+			{ 363, 1 }, // Song of Meditation
 	};
 
 	private static final int[][] WARRIOR_BUFFS = {
 			// skill id - lvl
-			{ 1040, 3 }, // shield
-			{ 1068, 3 }, // might
+
 			{ 1388, 3 }, // greater might
-			{ 1204, 2 }, // wind walk
-			{ 1242, 3 }, // death whisper
 			{ 1240, 3 }, // guidance
 			{ 1036, 2 }, // magic barrier
-			{ 1045, 6 }, // blessed body
-			{ 1087, 3 }, // agility
 			{ 1389, 3 }, // greater shield
 			{ 1086, 2 }, // haste
 			{ 1044, 3 }, // regeneration
-			{ 1077, 3 }, // focus
 			{ 1354, 1 }, // arcane protection
-			{ 271, 1 }, // dance of warrior
-			{ 275, 1 }, // dance of fury
 			{ 1257, 3 }, // decrease weight
 			{ 1259, 4 }, // resist shock
 			{ 1268, 4 }, // vampiric rage
+			// improved buffs
+			{ 1499, 1 }, // Improved Combat
+			{ 1501, 1 }, // Improved Condition
+			{ 1502, 1 }, // Improved Critical
+			{ 1503, 1 }, // Improved Shield Defense
+			{ 1504, 1 }, // Improved Movement
+			// dances
+			{ 271, 1 }, // dance of warrior
+			{ 275, 1 }, // dance of fury
+			{ 310, 1 }, // Dance of the Vampire
+			{ 272, 1 }, // Dance of Inspiration
+			{ 274, 1 }, // Dance of Fire
+			{ 915, 1 }, // Dance of Berserker
+			// songs
 			{ 264, 1 }, // song of earth
 			{ 267, 1 }, // song of warding
+			{ 268, 1 }, // Song of Wind
+			{ 265, 1 }, // Song of Life
+			{ 304, 1 }, // Song of Vitality
+			{ 349, 1 }, // Song of Renewal
 	};
 
 	public ExiledDivine() {
@@ -179,14 +198,24 @@ public class ExiledDivine extends AbstractNpcAI {
 		switch (type) {
 		case "mage":
 			for (int[] skill : MAGE_BUFFS) {
-				SkillData.getInstance().getSkill(skill[0], skill[1])
-						.applyEffects(npc, player);
+				Skill skillData = SkillData.getInstance().getSkill(skill[0],
+						skill[1]);
+				if (skillData.isDance()) {
+					skillData.applyEffects(npc, player, true, 600);
+				} else {
+					skillData.applyEffects(npc, player);
+				}
 			}
 			break;
 		case "warrior":
 			for (int[] skill : WARRIOR_BUFFS) {
-				SkillData.getInstance().getSkill(skill[0], skill[1])
-						.applyEffects(npc, player);
+				Skill skillData = SkillData.getInstance().getSkill(skill[0],
+						skill[1]);
+				if (skillData.isDance()) {
+					skillData.applyEffects(npc, player, true, 600);
+				} else {
+					skillData.applyEffects(npc, player);
+				}
 			}
 			break;
 		}
