@@ -219,7 +219,6 @@ public class ExiledDivine extends AbstractNpcAI {
 			}
 			break;
 		}
-
 	}
 
 	public static void main(String[] args) {

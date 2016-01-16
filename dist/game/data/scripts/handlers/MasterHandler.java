@@ -254,6 +254,7 @@ import handlers.voicedcommandhandlers.Banking;
 import handlers.voicedcommandhandlers.ChangePassword;
 import handlers.voicedcommandhandlers.ChatAdmin;
 import handlers.voicedcommandhandlers.Debug;
+import handlers.voicedcommandhandlers.InvokeExiledDivine;
 import handlers.voicedcommandhandlers.Lang;
 import handlers.voicedcommandhandlers.PlayersOnline;
 import handlers.voicedcommandhandlers.StatsVCmd;
@@ -412,7 +413,7 @@ public class MasterHandler {
 					(Config.L2JMOD_ALLOW_CHANGE_PASSWORD ? ChangePassword.class
 							: null),
 					(Config.ONLINE_COMMAND_ENABLE ? PlayersOnline.class : null),
-					AntiBotCmd.class, },
+					AntiBotCmd.class, InvokeExiledDivine.class, },
 			{
 					// Target Handlers
 					Area.class, AreaCorpseMob.class, AreaFriendly.class,
