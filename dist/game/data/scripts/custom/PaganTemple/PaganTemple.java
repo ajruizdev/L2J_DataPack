@@ -32,6 +32,7 @@ public class PaganTemple extends AbstractNpcAI {
 		super(PaganTemple.class.getSimpleName(), "custom");
 		addSpawnId(22136); // Doorman Zombie
 		addSpawnId(22137); // Penance Guard
+		addSpawnId(22194); // Penance Guard
 		addSpawnId(22138); // Chapel Guard
 	}
 
