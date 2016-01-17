@@ -9,6 +9,9 @@
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
+		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
+		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
+		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
 	</equipment>
 	<!-- Human Mystic -->
 	<equipment classId="10">
@@ -18,6 +21,9 @@
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
+		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
+		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
+		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
 	</equipment>
 	<!-- Elven Fighter -->
 	<equipment classId="18">
@@ -28,6 +34,9 @@
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
+		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
+		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
+		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
 	</equipment>
 	<!-- Elven Mystic -->
 	<equipment classId="25">
@@ -37,6 +46,9 @@
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
+		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
+		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
+		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
 	</equipment>
 	<!-- Dark Fighter -->
 	<equipment classId="31">
@@ -47,6 +59,9 @@
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
+		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
+		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
+		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
 	</equipment>
 	<!-- Dark Mystic -->
 	<equipment classId="38">
@@ -56,6 +71,9 @@
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
+		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
+		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
+		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
 	</equipment>
 	<!-- Orc Fighter -->
 	<equipment classId="44">
@@ -66,6 +84,9 @@
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
+		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
+		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
+		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
 	</equipment>
 	<!-- Orc Mystic -->
 	<!-- NOTE: This is orc_mage (orc_shaman is retail typo) -->
@@ -76,6 +97,9 @@
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
+		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
+		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
+		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
 	</equipment>
 	<!-- Dwarf Fighter -->
 	<equipment classId="53">
@@ -86,6 +110,9 @@
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
+		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
+		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
+		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
 	</equipment>
 	<!-- Male Kamael Soldier -->
 	<equipment classId="123">
@@ -96,6 +123,9 @@
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
+		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
+		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
+		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
 	</equipment>
 	<!-- Female Kamael Soldier -->
 	<equipment classId="124">
@@ -106,5 +136,8 @@
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
+		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
+		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
+		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
 	</equipment>
 </list>
