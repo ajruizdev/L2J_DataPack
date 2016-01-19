@@ -569,6 +569,8 @@
 	<admin command="admin_tvt_add" accessLevel="7" />
 	<admin command="admin_tvt_remove" accessLevel="7" />
 	<admin command="admin_tvt_advance" accessLevel="7" />
+	<admin command="admin_tvt_set_team1_location" accessLevel="7" />
+	<admin command="admin_tvt_set_team2_location" accessLevel="7" />
 
 	<!-- ADMIN UNBLOCK IP -->
 	<admin command="admin_unblockip" accessLevel="7" />

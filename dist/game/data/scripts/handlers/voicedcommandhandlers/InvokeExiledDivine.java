@@ -69,6 +69,12 @@ public class InvokeExiledDivine implements IVoicedCommandHandler {
 			return false;
 		}
 
+		if (activeChar.isOnEvent()) {
+			activeChar
+					.sendMessage("No puedes invocar al Divine Exiliado mientras estas en TvT.");
+			return false;
+		}
+
 		if (activeChar.isInCombat()) {
 			activeChar
 					.sendMessage("No puedes invocar al Divine Exiliado mientras estas en combate.");
@@ -101,7 +107,7 @@ public class InvokeExiledDivine implements IVoicedCommandHandler {
 
 		if (activeChar.isInsideZone(ZoneId.PVP)) {
 			activeChar
-					.sendMessage("No puedes invocar al Divine Exiliado en zona de PVP.");
+					.sendMessage("No puedes invocar al Divine Exiliado en zona de PvP.");
 			return false;
 		}
 
