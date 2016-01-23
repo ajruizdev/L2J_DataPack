@@ -31,6 +31,7 @@ import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.drops.DropListScope;
 import com.l2jserver.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.l2jserver.gameserver.util.Util;
 
@@ -190,6 +191,16 @@ public class L2NpcActionShift implements IActionShiftHandler
 			activeChar.setTarget(target);
 			NpcViewMod.sendNpcView(activeChar, (L2Npc) target);
 		}
+		else if (Config.PLAYER_CAN_SEE_DROPLIST)
+		{
+			if (!target.isNpc())
+			{
+				return false;
+			}
+			activeChar.setTarget(target);
+			NpcViewMod.sendNpcDropList(activeChar, (L2Npc) target, DropListScope.DEATH, 1);
+		}
+		
 		return true;
 	}
 	
