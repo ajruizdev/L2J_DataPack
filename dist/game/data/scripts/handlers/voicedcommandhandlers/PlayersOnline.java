@@ -72,7 +72,7 @@ public class PlayersOnline implements IVoicedCommandHandler {
 			activeChar.sendMessage("=== JUGADORES ONLINE ===");
 			activeChar
 					.sendMessage("Jugadores online: "
-							+ ((ONLINE_COUNT + OFFLINE_COUNT) * Config.ONLINE_COMMAND_MULTIPLIER));
+							+ ((int) (ONLINE_COUNT * Config.ONLINE_COMMAND_MULTIPLIER)));
 		}
 
 		if (command.equals("tradeoffline")) {
