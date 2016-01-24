@@ -5945,7 +5945,7 @@
 					<item id="15692" min="1" max="1" chance="27.1569" /> <!-- Sealed Moirai Sigil Piece -->
 				</group>
 				<group chance="5.889500141143799">
-					<item id="1879" min="1" max="1" chance="59.281" /> <!-- Cokes -->
+					<item id="1879" min="1" max="1" chance="59.231" /> <!-- Cokes -->
 					<item id="1885" min="1" max="1" chance="29.6405" /> <!-- High-Grade Suede -->
 					<item id="9628" min="1" max="1" chance="2.7897" /> <!-- Leonard -->
 					<item id="9630" min="1" max="1" chance="1.872" /> <!-- Orichalcum -->
@@ -5959,6 +5959,7 @@
 					<item id="15777" min="1" max="1" chance="0.2817" /> <!-- Recipe - Sealed Moirai Circlet (60%) -->
 					<item id="15791" min="1" max="1" chance="0.4024" /> <!-- Recipe - Sealed Moirai Shield (60%) -->
 					<item id="15790" min="1" max="1" chance="0.4024" /> <!-- Recipe - Sealed Moirai Sigil (60%) -->
+					<item id="10553" min="1" max="1" chance="0.0500" /> <!--Forgotten Scroll - Archer's Will-->
 				</group>
 			</death>
 			<corpse>
@@ -6239,7 +6240,8 @@
 					<item id="15787" min="1" max="1" chance="0.1144" /> <!-- Recipe - Sealed Moirai Boots (60%) -->
 					<item id="15788" min="1" max="1" chance="0.1144" /> <!-- Recipe - Sealed Moirai Leather Boots (60%) -->
 					<item id="15789" min="1" max="1" chance="0.1144" /> <!-- Recipe - Sealed Moirai Shoes (60%) -->
-					<item id="1345" min="10" max="30" chance="64.2037" /> <!-- Shining Arrow -->
+					<item id="1345" min="10" max="30" chance="64.1537" /> <!-- Shining Arrow -->
+					<item id="10552" min="1" max="1" chance="0.0500" /> <!--Forgotten Scroll - Archer's Will-->
 				</group>
 			</death>
 			<corpse>
@@ -6525,7 +6527,7 @@
 					<item id="15652" min="1" max="1" chance="61.7161" /> <!-- Sealed Moirai Leather Legging Piece -->
 				</group>
 				<group chance="9.360099792480469">
-					<item id="1895" min="1" max="1" chance="86.858" /> <!-- Metallic Fiber -->
+					<item id="1895" min="1" max="1" chance="86.808" /> <!-- Metallic Fiber -->
 					<item id="4040" min="1" max="1" chance="6.0801" /> <!-- Mold Lubricant -->
 					<item id="9628" min="1" max="1" chance="2.3843" /> <!-- Leonard -->
 					<item id="9630" min="1" max="1" chance="1.6" /> <!-- Orichalcum -->
@@ -6536,6 +6538,7 @@
 					<item id="959" min="1" max="1" chance="0.0122" /> <!-- Scroll: Enchant Weapon (S-Grade) -->
 					<item id="15779" min="1" max="1" chance="0.1204" /> <!-- Recipe - Sealed Moirai Leather Breastplate (60%) -->
 					<item id="15782" min="1" max="1" chance="0.1925" /> <!-- Recipe - Sealed Moirai Leather Legging (60%) -->
+					<item id="10552" min="1" max="1" chance="0.0500" /> <!--Forgotten Scroll - Fighter's Will-->
 				</group>
 				<group chance="42.0">
 					<item id="8600" min="1" max="1" chance="55" /> <!-- Herb of Life -->
@@ -6877,7 +6880,7 @@
 					<item id="15659" min="1" max="1" chance="16.6228" /> <!-- Sealed Moirai Shoes Piece -->
 				</group>
 				<group chance="4.899899959564209">
-					<item id="1895" min="1" max="1" chance="85.2364" /> <!-- Metallic Fiber -->
+					<item id="1895" min="1" max="1" chance="85.1864" /> <!-- Metallic Fiber -->
 					<item id="4040" min="1" max="1" chance="5.9665" /> <!-- Mold Lubricant -->
 					<item id="9628" min="1" max="1" chance="2.3398" /> <!-- Leonard -->
 					<item id="9630" min="1" max="1" chance="1.5701" /> <!-- Orichalcum -->
@@ -6891,6 +6894,7 @@
 					<item id="15787" min="1" max="1" chance="0.3544" /> <!-- Recipe - Sealed Moirai Boots (60%) -->
 					<item id="15788" min="1" max="1" chance="0.3544" /> <!-- Recipe - Sealed Moirai Leather Boots (60%) -->
 					<item id="15789" min="1" max="1" chance="0.3545" /> <!-- Recipe - Sealed Moirai Shoes (60%) -->
+					<item id="10552" min="1" max="1" chance="0.0500" /> <!--Forgotten Scroll - Fighter's Will-->
 				</group>
 				<group chance="42.0">
 					<item id="8600" min="1" max="1" chance="55" /> <!-- Herb of Life -->
@@ -7522,13 +7526,14 @@
 					<item id="10401" min="1" max="1" chance="99.6993" /> <!-- Icarus Trident Piece -->
 				</group>
 				<group chance="7.851799964904785">
-					<item id="1895" min="1" max="1" chance="87.1945" /> <!-- Metallic Fiber -->
+					<item id="1895" min="1" max="1" chance="87.1445" /> <!-- Metallic Fiber -->
 					<item id="4040" min="1" max="1" chance="6.1036" /> <!-- Mold Lubricant -->
 					<item id="9628" min="1" max="1" chance="2.3936" /> <!-- Leonard -->
 					<item id="9630" min="1" max="1" chance="1.6062" /> <!-- Orichalcum -->
 					<item id="10483" min="1" max="1" chance="2.1193" /> <!-- Life Stone - Level 82 -->
 					<item id="10484" min="1" max="1" chance="0.5298" /> <!-- Mid-Grade Life Stone - Level 82 -->
 					<item id="10485" min="1" max="1" chance="0.053" /> <!-- High-Grade Life Stone - Level 82 -->
+					<item id="10552" min="1" max="1" chance="0.0500" /> <!--Forgotten Scroll - Fighter's Will-->
 				</group>
 				<group chance="42.0">
 					<item id="8600" min="1" max="1" chance="55" /> <!-- Herb of Life -->
@@ -7910,7 +7915,7 @@
 					<item id="15636" min="1" max="1" chance="33.2748" /> <!-- Vesper Buster Piece -->
 				</group>
 				<group chance="7.766499996185303">
-					<item id="1895" min="1" max="1" chance="87.8639" /> <!-- Metallic Fiber -->
+					<item id="1895" min="1" max="1" chance="87.8139" /> <!-- Metallic Fiber -->
 					<item id="4040" min="1" max="1" chance="6.1505" /> <!-- Mold Lubricant -->
 					<item id="9628" min="1" max="1" chance="2.4119" /> <!-- Leonard -->
 					<item id="9630" min="1" max="1" chance="1.6185" /> <!-- Orichalcum -->
@@ -7918,6 +7923,7 @@
 					<item id="14167" min="1" max="1" chance="0.371" /> <!-- Mid-Grade Life Stone - Level 84 -->
 					<item id="14168" min="1" max="1" chance="0.0371" /> <!-- High-Grade Life Stone - Level 84 -->
 					<item id="9557" min="1" max="1" chance="0.0615" /> <!-- Holy Crystal -->
+					<item id="14207" min="1" max="1" chance="0.050" /> <!--Forgotten Scroll - Deflect Magic-->
 				</group>
 				<group chance="0.20000000298023224">
 					<item id="15690" min="1" max="1" chance="50" /> <!-- Secret Key -->
@@ -8035,7 +8041,7 @@
 					<item id="15643" min="1" max="1" chance="24.9184" /> <!-- Vesper Singer Piece -->
 				</group>
 				<group chance="8.56659984588623">
-					<item id="1895" min="1" max="1" chance="87.8639" /> <!-- Metallic Fiber -->
+					<item id="1895" min="1" max="1" chance="87.8139" /> <!-- Metallic Fiber -->
 					<item id="4040" min="1" max="1" chance="6.1505" /> <!-- Mold Lubricant -->
 					<item id="9628" min="1" max="1" chance="2.4119" /> <!-- Leonard -->
 					<item id="9630" min="1" max="1" chance="1.6185" /> <!-- Orichalcum -->
@@ -8043,6 +8049,7 @@
 					<item id="14167" min="1" max="1" chance="0.371" /> <!-- Mid-Grade Life Stone - Level 84 -->
 					<item id="14168" min="1" max="1" chance="0.0371" /> <!-- High-Grade Life Stone - Level 84 -->
 					<item id="9557" min="1" max="1" chance="0.0615" /> <!-- Holy Crystal -->
+					<item id="14209" min="1" max="1" chance="0.050" /> <!--Forgotten Scroll - Hide-->
 				</group>
 				<group chance="0.20000000298023224">
 					<item id="15690" min="1" max="1" chance="50" /> <!-- Secret Key -->
@@ -8154,7 +8161,7 @@
 					<item id="15638" min="1" max="1" chance="99.7637" /> <!-- Vesper Fighter Piece -->
 				</group>
 				<group chance="9.300999641418457">
-					<item id="1895" min="1" max="1" chance="78.9458" /> <!-- Metallic Fiber -->
+					<item id="1895" min="1" max="1" chance="78.8958" /> <!-- Metallic Fiber -->
 					<item id="4040" min="1" max="1" chance="5.5262" /> <!-- Mold Lubricant -->
 					<item id="4042" min="1" max="1" chance="4.6052" /> <!-- Enria -->
 					<item id="4043" min="1" max="1" chance="9.2103" /> <!-- Asofe -->
@@ -8162,6 +8169,7 @@
 					<item id="14167" min="1" max="1" chance="0.3333" /> <!-- Mid-Grade Life Stone - Level 84 -->
 					<item id="14168" min="1" max="1" chance="0.0333" /> <!-- High-Grade Life Stone - Level 84 -->
 					<item id="959" min="1" max="1" chance="0.0111" /> <!-- Scroll: Enchant Weapon (S-Grade) -->
+					<item id="14210" min="1" max="1" chance="0.050" /> <!--Forgotten Scroll - Dual Dagger Mastery-->
 				</group>
 				<group chance="0.20000000298023224">
 					<item id="15690" min="1" max="1" chance="50" /> <!-- Secret Key -->
@@ -8270,7 +8278,7 @@
 					<item id="15644" min="1" max="1" chance="99.7667" /> <!-- Vesper Thrower Piece -->
 				</group>
 				<group chance="9.409899711608887">
-					<item id="1895" min="1" max="1" chance="78.9458" /> <!-- Metallic Fiber -->
+					<item id="1895" min="1" max="1" chance="78.8958" /> <!-- Metallic Fiber -->
 					<item id="4040" min="1" max="1" chance="5.5262" /> <!-- Mold Lubricant -->
 					<item id="4042" min="1" max="1" chance="4.6052" /> <!-- Enria -->
 					<item id="4043" min="1" max="1" chance="9.2103" /> <!-- Asofe -->
@@ -8278,6 +8286,7 @@
 					<item id="14167" min="1" max="1" chance="0.3333" /> <!-- Mid-Grade Life Stone - Level 84 -->
 					<item id="14168" min="1" max="1" chance="0.0333" /> <!-- High-Grade Life Stone - Level 84 -->
 					<item id="959" min="1" max="1" chance="0.0111" /> <!-- Scroll: Enchant Weapon (S-Grade) -->
+					<item id="14220" min="1" max="1" chance="0.050" /> <!--Forgotten Scroll - Silent Mind-->
 				</group>
 				<group chance="0.20000000298023224">
 					<item id="15690" min="1" max="1" chance="50" /> <!-- Secret Key -->
@@ -8383,7 +8392,7 @@
 					<item id="15637" min="1" max="1" chance="99.7657" /> <!-- Vesper Shaper Piece -->
 				</group>
 				<group chance="8.809599876403809">
-					<item id="1895" min="1" max="1" chance="87.8099" /> <!-- Metallic Fiber -->
+					<item id="1895" min="1" max="1" chance="87.7599" /> <!-- Metallic Fiber -->
 					<item id="4040" min="1" max="1" chance="6.1467" /> <!-- Mold Lubricant -->
 					<item id="9628" min="1" max="1" chance="2.4105" /> <!-- Leonard -->
 					<item id="9630" min="1" max="1" chance="1.6175" /> <!-- Orichalcum -->
@@ -8391,6 +8400,7 @@
 					<item id="14167" min="1" max="1" chance="0.3707" /> <!-- Mid-Grade Life Stone - Level 84 -->
 					<item id="14168" min="1" max="1" chance="0.0371" /> <!-- High-Grade Life Stone - Level 84 -->
 					<item id="960" min="1" max="1" chance="0.1229" /> <!-- Scroll: Enchant Armor (S-Grade) -->
+					<item id="14211" min="1" max="1" chance="0.050" /> <!--Forgotten Scroll - Seven Arrow-->
 				</group>
 				<group chance="0.20000000298023224">
 					<item id="15690" min="1" max="1" chance="50" /> <!-- Secret Key -->
@@ -8508,6 +8518,9 @@
 					<item id="14168" min="1" max="1" chance="0.0371" /> <!-- High-Grade Life Stone - Level 84 -->
 					<item id="960" min="1" max="1" chance="0.1229" /> <!-- Scroll: Enchant Armor (S-Grade) -->
 				</group>
+				<group chance="0.2309">
+					<item id="14208" min="1" max="1" chance="100" /> <!--Forgotten Scroll - Final Secret-->
+				</group>
 				<group chance="7">
 					<item id="15690" min="1" max="1" chance="15" /> <!-- Secret Key -->
 					<item id="15540" min="1" max="1" chance="15" /> <!-- Unlit Torchlight -->
@@ -8597,6 +8610,10 @@
 					<item id="15795" min="1" max="1" chance="0.0781" /> <!-- Recipe - Sealed Vesper Breastplate (60%) -->
 					<item id="15798" min="1" max="1" chance="0.125" /> <!-- Recipe - Sealed Vesper Gaiter (60%) -->
 					<item id="9557" min="1" max="1" chance="0.0728" /> <!-- Holy Crystal -->
+				</group>
+				<group chance="0.002952">
+					<item id="14213" min="1" max="1" chance="50" /> <!--Forgotten Scroll - Enlightenment - Healer-->
+					<item id="14212" min="1" max="1" chance="50" /> <!--Forgotten Scroll - Enlightenment - Wizard-->
 				</group>
 				<group chance="7">
 					<item id="15690" min="1" max="1" chance="15" /> <!-- Secret Key -->
@@ -8688,6 +8705,10 @@
 					<item id="15799" min="1" max="1" chance="0.1665" /> <!-- Recipe - Sealed Vesper Leather Legging (60%) -->
 					<item id="9557" min="1" max="1" chance="0.0728" /> <!-- Holy Crystal -->
 				</group>
+				<group chance="0.003278">
+					<item id="10560" min="1" max="1" chance="50" /> <!--Forgotten Scroll - Expose Weak Point-->
+					<item id="14220" min="1" max="1" chance="50" /> <!--Forgotten Scroll - Silent Mind-->
+				</group>
 				<group chance="7">
 					<item id="15690" min="1" max="1" chance="15" /> <!-- Secret Key -->
 					<item id="15540" min="1" max="1" chance="15" /> <!-- Unlit Torchlight -->
@@ -8774,6 +8795,9 @@
 					<item id="14168" min="1" max="1" chance="0.037" /> <!-- High-Grade Life Stone - Level 84 -->
 					<item id="15797" min="1" max="1" chance="0.0877" /> <!-- Recipe - Sealed Vesper Tunic (60%) -->
 					<item id="15800" min="1" max="1" chance="0.1406" /> <!-- Recipe - Sealed Vesper Stockings (60%) -->
+				</group>
+				<group chance="0.2216">
+					<item id="14221" min="1" max="1" chance="100" /> <!--Forgotten Scroll - Turn Stone-->
 				</group>
 				<group chance="7">
 					<item id="15690" min="1" max="1" chance="15" /> <!-- Secret Key -->
@@ -8875,6 +8899,10 @@
 					<item id="15810" min="1" max="1" chance="0.454" /> <!-- Recipe - Sealed Vesper Earring (70%) -->
 					<item id="15811" min="1" max="1" chance="0.3405" /> <!-- Recipe - Sealed Vesper Necklace (70%) -->
 					<item id="9557" min="1" max="1" chance="0.1034" /> <!-- Holy Crystal -->
+				</group>
+				<group chance="0.003606">
+					<item id="10576" min="1" max="1" chance="50" /> <!--Forgotten Scroll - Servitor Barrier-->
+					<item id="10554" min="1" max="1" chance="50" /> <!--Forgotten Scroll - Anti-Magic Armor-->
 				</group>
 				<group chance="7">
 					<item id="15690" min="1" max="1" chance="15" /> <!-- Secret Key -->
@@ -8979,6 +9007,9 @@
 					<item id="15804" min="1" max="1" chance="0.3075" /> <!-- Recipe - Sealed Vesper Boots (60%) -->
 					<item id="15805" min="1" max="1" chance="0.3075" /> <!-- Recipe - Sealed Vesper Leather Boots (60%) -->
 					<item id="15806" min="1" max="1" chance="0.3075" /> <!-- Recipe - Sealed Vesper Shoes (60%) -->
+				</group>
+				<group chance="0.2262">
+					<item id="10559" min="1" max="1" chance="100" /> <!--Forgotten Scroll - Sixth Sense-->
 				</group>
 				<group chance="7">
 					<item id="15690" min="1" max="1" chance="15" /> <!-- Secret Key -->

@@ -6701,6 +6701,9 @@
 					<item id="5277" min="1" max="1" chance="0.0572" /> <!-- Recipe: Greater Spiritshot (S) Compressed Package(100%) -->
 					<item id="1345" min="10" max="30" chance="85.7382" /> <!-- Shining Arrow -->
 				</group>
+				<group chance="0.0750">
+					<item id="14219" min="1" max="1" chance="100" /> <!--Forgotten Scroll - Magician's Will-->
+				</group>
 				<group chance="52.0">
 					<item id="8600" min="1" max="1" chance="55" /> <!-- Herb of Life -->
 					<item id="8601" min="1" max="1" chance="38" /> <!-- Greater Herb of Life -->
@@ -8088,6 +8091,9 @@
 					<item id="9575" min="1" max="1" chance="0.0611" /> <!-- High-Grade Life Stone - Level 80 -->
 					<item id="9549" min="1" max="1" chance="2.8138" /> <!-- Wind Stone -->
 				</group>
+				<group chance="0.0300">
+					<item id="14219" min="1" max="1" chance="100" /> <!--Forgotten Scroll - Magician's Will-->
+				</group>
 				<group chance="42.0">
 					<item id="8600" min="1" max="1" chance="55" /> <!-- Herb of Life -->
 					<item id="8601" min="1" max="1" chance="38" /> <!-- Greater Herb of Life -->
@@ -8815,6 +8821,9 @@
 					<item id="9574" min="1" max="1" chance="1.4498" /> <!-- Mid-Grade Life Stone - Level 80 -->
 					<item id="9575" min="1" max="1" chance="0.145" /> <!-- High-Grade Life Stone - Level 80 -->
 					<item id="5277" min="1" max="1" chance="0.3711" /> <!-- Recipe: Greater Spiritshot (S) Compressed Package(100%) -->
+				</group>
+				<group chance="0.0300">
+					<item id="14219" min="1" max="1" chance="100" /> <!--Forgotten Scroll - Magician's Will-->
 				</group>
 				<group chance="42.0">
 					<item id="8600" min="1" max="1" chance="55" /> <!-- Herb of Life -->
