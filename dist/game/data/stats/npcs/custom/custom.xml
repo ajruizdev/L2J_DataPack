@@ -58,7 +58,43 @@
 			<height normal="22.25" />
 		</collision>
 	</npc>
+	<npc id="1004308" displayId="18782" level="80" type="L2Npc" name="Cástor"
+        usingServerSideName="true" title="Gracia Teleporter" usingServerSideTitle="true">
+    	<sex>MALE</sex>
+    	<collision>
+        	<radius normal="19" />
+        	<height normal="44" />
+    	</collision>
+	</npc>
+	<npc id="1004309" displayId="18782" level="80" type="L2Npc" name="Pólux"
+        usingServerSideName="true" title="Gracia Teleporter" usingServerSideTitle="true">
+    	<sex>MALE</sex>
+    	<collision>
+        	<radius normal="19" />
+        	<height normal="44" />
+    	</collision>
+	</npc>
 	<npc id="1151600" level="85" displayId="4310" name="Mercader del Abismo" usingServerSideName="true" title="???" usingServerSideTitle="true" type="L2Npc">
+		<!-- L2Abyss.NET -->
+		<sex>MALE</sex>
+		<stats str="50" int="50" dex="50" wit="50" con="50" men="50">
+        <vitals hp="99999999" mp="99999999" />
+        <attack physical="99999999" magical="99999999" attackSpeed="200" range="40" />
+        <defence physical="99999999" magical="99999999" />
+        <attribute>
+            <defence fire="99999999" water="99999999" wind="99999999" earth="99999999" holy="99999999" dark="99999999" />
+        </attribute>
+        <speed>
+            <walk ground="60" />
+            <run ground="160" />
+        </speed>
+    </stats>
+		<collision>
+			<radius normal="8" />
+			<height normal="22" />
+		</collision>
+	</npc>
+	<npc id="1151601" level="85" displayId="4310" name="Mercader del Abismo" usingServerSideName="true" title="TvT Event" usingServerSideTitle="true" type="L2TvTEventNpc">
 		<!-- L2Abyss.NET -->
 		<sex>MALE</sex>
 		<stats str="50" int="50" dex="50" wit="50" con="50" men="50">
