@@ -94,7 +94,7 @@
 			<height normal="22" />
 		</collision>
 	</npc>
-	<npc id="1151601" level="85" displayId="4310" name="Mercader del Abismo" usingServerSideName="true" title="TvT Event" usingServerSideTitle="true" type="L2TvTEventNpc">
+	<npc id="1151601" level="85" displayId="4310" name="Mercader del Abismo" usingServerSideName="true" title="TvT Event" usingServerSideTitle="true" type="L2Npc">
 		<!-- L2Abyss.NET -->
 		<sex>MALE</sex>
 		<stats str="50" int="50" dex="50" wit="50" con="50" men="50">
