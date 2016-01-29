@@ -1319,9 +1319,19 @@
 		<set name="targetType" val="NONE" />
 	</skill>
 	<skill id="9173" levels="1" name="Nevit's Voice">
-		<!-- none -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<set name="isMagic" val="2" /> <!-- Static Skill -->
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17212" /> <!-- Nevit's Voice -->
+		<set name="magicLvl" val="1" />
+		<set name="operateType" val="A1" />
+		<set name="reuseDelay" val="2000" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="targetType" val="SELF" />
+		<for>
+			<effect name="GiveRecommendation">
+				<param amount="10" />
+			</effect>
+		</for>
 	</skill>
 	<skill id="9174" levels="1" name="500,000 SP scroll">
 		<!-- High Five Skill -->

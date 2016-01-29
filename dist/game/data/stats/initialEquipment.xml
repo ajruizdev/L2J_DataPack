@@ -12,6 +12,8 @@
 		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
 		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
 		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
+		<item id="17212" count="1" /> <!-- Nevit's Voice -->
+		<item id="17095" count="1" /> <!-- Nevit's Hourglass - 1 hour -->
 	</equipment>
 	<!-- Human Mystic -->
 	<equipment classId="10">
@@ -24,6 +26,8 @@
 		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
 		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
 		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
+		<item id="17212" count="1" /> <!-- Nevit's Voice -->
+		<item id="17095" count="1" /> <!-- Nevit's Hourglass - 1 hour -->
 	</equipment>
 	<!-- Elven Fighter -->
 	<equipment classId="18">
@@ -37,6 +41,8 @@
 		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
 		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
 		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
+		<item id="17212" count="1" /> <!-- Nevit's Voice -->
+		<item id="17095" count="1" /> <!-- Nevit's Hourglass - 1 hour -->
 	</equipment>
 	<!-- Elven Mystic -->
 	<equipment classId="25">
@@ -49,6 +55,8 @@
 		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
 		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
 		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
+		<item id="17212" count="1" /> <!-- Nevit's Voice -->
+		<item id="17095" count="1" /> <!-- Nevit's Hourglass - 1 hour -->
 	</equipment>
 	<!-- Dark Fighter -->
 	<equipment classId="31">
@@ -62,6 +70,8 @@
 		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
 		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
 		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
+		<item id="17212" count="1" /> <!-- Nevit's Voice -->
+		<item id="17095" count="1" /> <!-- Nevit's Hourglass - 1 hour -->
 	</equipment>
 	<!-- Dark Mystic -->
 	<equipment classId="38">
@@ -74,6 +84,8 @@
 		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
 		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
 		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
+		<item id="17212" count="1" /> <!-- Nevit's Voice -->
+		<item id="17095" count="1" /> <!-- Nevit's Hourglass - 1 hour -->
 	</equipment>
 	<!-- Orc Fighter -->
 	<equipment classId="44">
@@ -87,6 +99,8 @@
 		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
 		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
 		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
+		<item id="17212" count="1" /> <!-- Nevit's Voice -->
+		<item id="17095" count="1" /> <!-- Nevit's Hourglass - 1 hour -->
 	</equipment>
 	<!-- Orc Mystic -->
 	<!-- NOTE: This is orc_mage (orc_shaman is retail typo) -->
@@ -100,6 +114,8 @@
 		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
 		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
 		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
+		<item id="17212" count="1" /> <!-- Nevit's Voice -->
+		<item id="17095" count="1" /> <!-- Nevit's Hourglass - 1 hour -->
 	</equipment>
 	<!-- Dwarf Fighter -->
 	<equipment classId="53">
@@ -113,6 +129,8 @@
 		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
 		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
 		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
+		<item id="17212" count="1" /> <!-- Nevit's Voice -->
+		<item id="17095" count="1" /> <!-- Nevit's Hourglass - 1 hour -->
 	</equipment>
 	<!-- Male Kamael Soldier -->
 	<equipment classId="123">
@@ -126,6 +144,8 @@
 		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
 		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
 		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
+		<item id="17212" count="1" /> <!-- Nevit's Voice -->
+		<item id="17095" count="1" /> <!-- Nevit's Hourglass - 1 hour -->
 	</equipment>
 	<!-- Female Kamael Soldier -->
 	<equipment classId="124">
@@ -139,5 +159,7 @@
 		<item id="1000001" count="3" /> <!-- Moneda Abisal -->
 		<item id="20391" count="10" /> <!-- Vitality Maintaining Potion -->
 		<item id="20392" count="10" /> <!-- Vitality Replenishing Potion -->
+		<item id="17212" count="1" /> <!-- Nevit's Voice -->
+		<item id="17095" count="1" /> <!-- Nevit's Hourglass - 1 hour -->
 	</equipment>
 </list>
