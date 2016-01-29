@@ -39,7 +39,7 @@ public final class PriestOfBlessing extends AbstractNpcAI
 	// Spawn state
 	private static boolean SPAWNED = false;
 	// Items
-	private static final int NEVIT_VOICE = 17094;
+	private static final int NEVIT_VOICE = 17212;
 	// @formatter:off
 	private static final int[][] HOURGLASSES =
 	{
