@@ -177,4 +177,12 @@
 			<height normal="80" />
 		</collision>
 	</npc>
+	<npc id="1151604" displayId="32571" level="80" type="L2ClassMaster" name="Class Master"
+        usingServerSideName="true" title="Cambio de clase" usingServerSideTitle="true">
+    	<sex>MALE</sex>
+    	<collision>
+        	<radius normal="10" />
+        	<height normal="22.5" />
+    	</collision>
+	</npc>
 </list>
