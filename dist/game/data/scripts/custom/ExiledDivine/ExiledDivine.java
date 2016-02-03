@@ -45,7 +45,7 @@ public class ExiledDivine extends AbstractNpcAI {
 
 	private static final int NPC_ID = 1151602;
 
-	private static final int ABYSSAL_COIN_ID = 1000001;
+	private static final int ABYSSAL_COIN_ID = 1000002;
 
 	private static final int NOBLESSE_BLESSING = 1323; // max lvl 1
 
@@ -161,14 +161,14 @@ public class ExiledDivine extends AbstractNpcAI {
 		if (npc.isInsideRadius(player, 200, false, true)) {
 			if (!player.isVip() && !PLAYER_PAID.get(player.getObjectId())) {
 				if (!(player.getInventory().getInventoryItemCount(
-						ABYSSAL_COIN_ID, -1) >= 1)) {
+						ABYSSAL_COIN_ID, -1) >= 2)) {
 					return getHtm(player.getHtmlPrefix(), "nocoin.htm");
 				}
 				switch (event) {
 				case "pay1":
 					player.getInventory().destroyItemByItemId("ExiledDivine",
-							ABYSSAL_COIN_ID, 1, player, null);
-					player.sendMessage("Has entregado 1 Moneda Abisal al Divine Exiliado.");
+							ABYSSAL_COIN_ID, 2, player, null);
+					player.sendMessage("Has entregado 2 Fragmentos Abisales al Divine Exiliado.");
 					PLAYER_PAID.replace(player.getObjectId(), true);
 					return getHtm(player.getHtmlPrefix(), NPC_ID + ".htm");
 				case "pay5":

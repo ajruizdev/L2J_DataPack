@@ -65,10 +65,25 @@ public class ChatShout implements IChatHandler
 			}
 		}
 		else if (Config.DEFAULT_GLOBAL_CHAT.equalsIgnoreCase("global"))
-		{
+		{	
 			if (!activeChar.canOverrideCond(PcCondOverride.CHAT_CONDITIONS) && !activeChar.getFloodProtectors().getGlobalChat().tryPerformAction("global chat"))
 			{
 				activeChar.sendMessage("Do not spam shout channel.");
+				return;
+			}
+			
+			// shout channel only global for player lvl 40+
+			if (activeChar.getLevel() < 40) {
+				int region = MapRegionManager.getInstance().getMapRegionLocId(activeChar);
+				for (L2PcInstance player : L2World.getInstance().getPlayers())
+				{
+					if ((region == MapRegionManager.getInstance().getMapRegionLocId(player)) && !BlockList.isBlocked(player, activeChar) && (player.getInstanceId() == activeChar.getInstanceId()))
+					{
+						player.sendPacket(cs);
+					}
+				}
+				
+				activeChar.sendMessage("Shout channel will be GLOBAL from lvl 40, meanwhile can be read only by players in your same region.");
 				return;
 			}
 			
