@@ -137,6 +137,10 @@ public class MerchantOfAbyss extends AbstractNpcAI {
 			MultisellData.getInstance().separateAndSend(364990009, player, npc,
 					false);
 			break;
+		case "change":
+			MultisellData.getInstance().separateAndSend(364990010, player, npc,
+					false);
+			break;
 		case "vitality":
 			return getHtm(player.getHtmlPrefix(), NPC_ID + "-vita.htm");
 		case "buy-vita":
