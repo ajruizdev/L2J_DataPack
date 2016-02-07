@@ -43,13 +43,23 @@ public class ExiledDivine extends AbstractNpcAI {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(ExiledDivine.class);
 
+	/**
+	 * Config
+	 */
 	private static final int NPC_ID = 1151602;
 
 	private static final int ABYSSAL_COIN_ID = 1000002;
+	private static final int BUFFS_PRICE = 2;
 
-	private static final int NOBLESSE_BLESSING = 1323; // max lvl 1
+	private static final int MAX_LVL_FREE = 40;
+	// in seconds
+	private static final int BUFF_DURATION = 3600;
+	private static final int DANCE_DURATION = 3600;
+	/** - */
 
 	private static final Map<Integer, Boolean> PLAYER_PAID = new HashMap<Integer, Boolean>();
+
+	private static final int NOBLESSE_BLESSING = 1323; // max lvl 1
 
 	private static final int[][] MAGE_BUFFS = {
 			// skill id - lvl
@@ -146,7 +156,8 @@ public class ExiledDivine extends AbstractNpcAI {
 		}
 
 		String html = "";
-		if (player.isVip() || PLAYER_PAID.get(player.getObjectId())) {
+		if (player.isVip() || (player.getLevel() < MAX_LVL_FREE)
+				|| PLAYER_PAID.get(player.getObjectId())) {
 			html = getHtm(player.getHtmlPrefix(), NPC_ID + ".htm");
 		} else {
 			html = getHtm(player.getHtmlPrefix(), "novip.htm");
@@ -159,15 +170,16 @@ public class ExiledDivine extends AbstractNpcAI {
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
 
 		if (npc.isInsideRadius(player, 200, false, true)) {
-			if (!player.isVip() && !PLAYER_PAID.get(player.getObjectId())) {
+			if (!(player.getLevel() < MAX_LVL_FREE) && !player.isVip()
+					&& !PLAYER_PAID.get(player.getObjectId())) {
 				if (!(player.getInventory().getInventoryItemCount(
-						ABYSSAL_COIN_ID, -1) >= 2)) {
+						ABYSSAL_COIN_ID, -1) >= BUFFS_PRICE)) {
 					return getHtm(player.getHtmlPrefix(), "nocoin.htm");
 				}
 				switch (event) {
 				case "pay1":
 					player.getInventory().destroyItemByItemId("ExiledDivine",
-							ABYSSAL_COIN_ID, 2, player, null);
+							ABYSSAL_COIN_ID, BUFFS_PRICE, player, null);
 					player.sendMessage("Has entregado 2 Fragmentos Abisales al Divine Exiliado.");
 					PLAYER_PAID.replace(player.getObjectId(), true);
 					return getHtm(player.getHtmlPrefix(), NPC_ID + ".htm");
@@ -201,9 +213,9 @@ public class ExiledDivine extends AbstractNpcAI {
 				Skill skillData = SkillData.getInstance().getSkill(skill[0],
 						skill[1]);
 				if (skillData.isDance()) {
-					skillData.applyEffects(npc, player, true, 600);
+					skillData.applyEffects(npc, player, true, DANCE_DURATION);
 				} else {
-					skillData.applyEffects(npc, player);
+					skillData.applyEffects(npc, player, true, BUFF_DURATION);
 				}
 			}
 			break;
@@ -212,9 +224,9 @@ public class ExiledDivine extends AbstractNpcAI {
 				Skill skillData = SkillData.getInstance().getSkill(skill[0],
 						skill[1]);
 				if (skillData.isDance()) {
-					skillData.applyEffects(npc, player, true, 600);
+					skillData.applyEffects(npc, player, true, DANCE_DURATION);
 				} else {
-					skillData.applyEffects(npc, player);
+					skillData.applyEffects(npc, player, true, BUFF_DURATION);
 				}
 			}
 			break;
