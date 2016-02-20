@@ -3186,7 +3186,7 @@
 			</speed>
 		</stats>
 		<collision>
-			<radius normal="12" />
+			<radius normal="25" />
 			<height normal="23" />
 		</collision>
 	</npc>
