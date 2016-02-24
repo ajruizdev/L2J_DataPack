@@ -19,6 +19,7 @@
 package handlers.effecthandlers;
 
 import com.l2jserver.gameserver.ai.CtrlEvent;
+import com.l2jserver.gameserver.ai.CtrlIntention;
 import com.l2jserver.gameserver.model.StatsSet;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
@@ -65,5 +66,9 @@ public final class Sleep extends AbstractEffect
 		info.getEffected().abortCast();
 		info.getEffected().stopMove(null);
 		info.getEffected().getAI().notifyEvent(CtrlEvent.EVT_SLEEPING);
+		if (info.getEffected().isPlayer())
+		{
+			info.getEffected().getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
+		}
 	}
 }
