@@ -39,6 +39,8 @@ public final class DragonValley extends AbstractNpcAI
 {
 	// NPC
 	private static final int NECROMANCER_OF_THE_VALLEY = 22858;
+	private static final int GEM_DRAGON = 22830;
+	private static final int GEM_DRAGON_HATCHLING = 22837;
 	private static final int EXPLODING_ORC_GHOST = 22818;
 	private static final int WRATHFUL_ORC_GHOST = 22819;
 	private static final int DRAKOS_ASSASSIN = 22823;
@@ -186,6 +188,10 @@ public final class DragonValley extends AbstractNpcAI
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon)
 	{
+		if (npc.getId() == GEM_DRAGON)
+		{
+			spawnDragonHatchling(npc, killer, isSummon, 5);
+		}
 		if (npc.getId() == NECROMANCER_OF_THE_VALLEY)
 		{
 			spawnGhost(npc, killer, isSummon, 20);
@@ -289,6 +295,16 @@ public final class DragonValley extends AbstractNpcAI
 				val++;
 			}
 			npc.setScriptValue(val);
+		}
+	}
+	
+	private void spawnDragonHatchling(L2Npc npc, L2PcInstance player, boolean isSummon, int chance)
+	{
+		if ((getRandom(100) < chance))
+		{
+			final L2Playable attacker = isSummon ? player.getSummon() : player;
+			final L2Npc hatchling = addSpawn(GEM_DRAGON_HATCHLING, npc.getX(), npc.getY(), npc.getZ() + 10, npc.getHeading(), false, 0, true);
+			addAttackPlayerDesire(hatchling, attacker);
 		}
 	}
 	
