@@ -62,7 +62,6 @@
 			<spawn npcId="32835" x="85793" y="-245640" z="-8320" heading="0" respawn="0" />
 			<spawn npcId="32836" x="84705" y="-246730" z="-8320" heading="0" respawn="0" />
 			<!-- Spawn: Seven Signs, Solina's Tomb -->	
-			<spawn npcId="18949" x="76625" y="-240824" z="-10832" heading="0" respawn="0" />
 			<spawn npcId="18956" x="55498" y="-252781" z="-6760" heading="0" respawn="0" />
 			<spawn npcId="18957" x="55520" y="-252160" z="-6760" heading="0" respawn="0" />
 			<spawn npcId="18958" x="56635" y="-252776" z="-6760" heading="0" respawn="0" />
@@ -146,6 +145,8 @@
 			<spawn npcId="32858" x="46672" y="-248368" z="-6720" heading="0" respawn="0" />				
 			<spawn npcId="32859" x="44114" y="-250912" z="-6720" heading="0" respawn="0" />				
 			<spawn npcId="32860" x="46672" y="-250915" z="-6720" heading="0" respawn="0" />
+			<!-- Spawn: Seven Signs, One Who Seek The Power Of The Seals -->
+			<spawn npcId="18949" x="76280" y="-241224" z="-10832" heading="0" respawn="0" />
 		</group>
 	</spawnlist>
 </instance>

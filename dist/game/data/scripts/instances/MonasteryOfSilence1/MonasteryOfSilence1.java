@@ -20,12 +20,14 @@ package instances.MonasteryOfSilence1;
 
 import quests.Q10294_SevenSignsToTheMonasteryOfSilence.Q10294_SevenSignsToTheMonasteryOfSilence;
 import quests.Q10295_SevenSignsSolinasTomb.Q10295_SevenSignsSolinasTomb;
+import quests.Q10296_SevenSignsPowerOfTheSeal.Q10296_SevenSignsPowerOfTheSeal;
 import instances.AbstractInstance;
 
 import com.l2jserver.gameserver.instancemanager.InstanceManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.entity.Instance;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
 import com.l2jserver.gameserver.model.quest.QuestState;
@@ -65,6 +67,8 @@ public final class MonasteryOfSilence1 extends AbstractInstance
 	private static final int ALTAROFHALLOWS_SWORD = 32858;
 	private static final int ALTAROFHALLOWS_SCROLL = 32859;
 	private static final int ALTAROFHALLOWS_SHIELD = 32860;
+	// One Who Seek The Power Of The Seals
+	private static final int ETIS_VAN_ETINA = 18949;
 	// Skills
 	private static final SkillHolder[] BUFFS =
 	{
@@ -87,6 +91,8 @@ public final class MonasteryOfSilence1 extends AbstractInstance
 	private static final Location RETURN_TO_GUARDIAN = new Location(85937, -249618, -8320);
 	private static final Location SAINTNESS = new Location(56033, -252944, -6760);
 	private static final Location SAINTNESS_2 = new Location(55955, -250394, -6760);
+	// One Who Seek The Power Of The Seals
+	private static final Location ETIS_ETINA = new Location(76707, -241022, -10832);
 	// NpcString
 	private static final NpcStringId[] ELCADIA_DIALOGS_1 =
 	{
@@ -120,6 +126,7 @@ public final class MonasteryOfSilence1 extends AbstractInstance
 				ALTAROFHALLOWS_SCROLL,
 				ALTAROFHALLOWS_SHIELD
 				);
+		addKillId(ETIS_VAN_ETINA);
 	}
 	
 	@Override
@@ -133,7 +140,7 @@ public final class MonasteryOfSilence1 extends AbstractInstance
 		spawnElcadia(player, (MoSWorld) world);
 		
 		final QuestState qs_solinas = player.getQuestState(Q10295_SevenSignsSolinasTomb.class.getSimpleName());
-		if (qs_solinas != null) 
+		if (qs_solinas != null && !qs_solinas.isCompleted()) 
 		{
 			if (qs_solinas.getInt("progress") >= 4)
 			{
@@ -165,8 +172,10 @@ public final class MonasteryOfSilence1 extends AbstractInstance
 		{
 			return null;
 		}
-		
 		final MoSWorld world = (MoSWorld) tmpworld;
+		
+		final Instance inst = InstanceManager.getInstance().getInstance(world.getInstanceId());
+		
 		switch (event)
 		{
 			case "TELE2":
@@ -264,6 +273,38 @@ public final class MonasteryOfSilence1 extends AbstractInstance
 				world.elcadia.teleToLocation(SAINTNESS_2, world.getInstanceId(), 0);
 				break;
 			}
+			// One Who Seek The Power Of The Seals
+			case "video":
+			{
+				cancelQuestTimer("FOLLOW", world.elcadia, player);
+				for (L2Npc inpc : inst.getNpcs())
+				{
+					if (inpc.getObjectId() == npc.getObjectId() || inpc.getObjectId() == world.elcadia.getObjectId())
+					{
+						inpc.deleteMe();
+					}
+				}
+				player.showQuestMovie(29);
+				startQuestTimer("teleport", 60000, npc, player);
+				break;
+			}
+			case "teleport":
+			{
+				teleportPlayer(player, ETIS_ETINA, player.getInstanceId());
+				spawnElcadia(player, world);
+				break;
+			}
+			case "DESPAWN_ELCADIA":
+			{
+				cancelQuestTimer("FOLLOW", world.elcadia, player);
+				world.elcadia.deleteMe();
+				break;
+			}
+			case "SPAWN_ELCADIA":
+			{
+				spawnElcadia(player, world);
+				break;
+			}
 			case "FOLLOW":
 			{
 				if (npc.getInstanceId() != player.getInstanceId())
@@ -326,6 +367,29 @@ public final class MonasteryOfSilence1 extends AbstractInstance
 			enterInstance(talker, world, "MonasteryOfSilence.xml", TEMPLATE_ID);
 		}
 		return super.onTalk(npc, talker);
+	}
+	
+	@Override
+	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	{
+		final QuestState qs = player.getQuestState(Q10296_SevenSignsPowerOfTheSeal.class.getSimpleName());
+		if (qs == null)
+		{
+			return null;
+		}
+		
+		if (qs.getInt("boss") != 1)
+		{
+			qs.set("boss", "1");
+		}
+		
+		startQuestTimer("DESPAWN_ELCADIA", 0, npc, player);
+		startQuestTimer("SPAWN_ELCADIA", 60000, npc, player);
+		
+		// start movie
+		player.showQuestMovie(30);
+		
+		return super.onKill(npc, player, isPet);
 	}
 	
 	protected void spawnElcadia(L2PcInstance player, MoSWorld world)

@@ -2071,12 +2071,12 @@
 	<npc id="18949" level="84" type="L2Monster" name="Etis van Etina" title="Head of the Embryo">
         <!-- TODO: Must be confirmed -->
         <sex>MALE</sex>
-        <stats>
-            <vitals hp="19205" mp="2444.0" />
-            <attack physical="500" magical="500" attackSpeed="278" range="40" />
-            <defence physical="500" magical="500" />
+        <stats str="40" int="25" dex="30" wit="20" con="43" men="20">
+            <vitals hp="20480" mp="2145.0" />
+            <attack physical="1650" magical="1060" attackSpeed="278" range="40" />
+            <defence physical="450" magical="340" />
             <attribute>
-                <defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+                <defence fire="140" water="170" wind="170" earth="170" holy="120" dark="200" />
             </attribute>
             <speed>
                 <walk ground="60" />

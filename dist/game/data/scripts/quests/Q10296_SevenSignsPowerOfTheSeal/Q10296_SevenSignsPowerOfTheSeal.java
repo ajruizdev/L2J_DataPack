@@ -1,16 +1,18 @@
 /*
- * This program is free software: you can redistribute it and/or modify it under
- * the terms of the GNU General Public License as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option) any later
- * version.
+ * This file is part of the L2J Mobius project.
  * 
- * This program is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
- * details.
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  * 
- * You should have received a copy of the GNU General Public License along with
- * this program. If not, see <http://www.gnu.org/licenses/>.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 package quests.Q10296_SevenSignsPowerOfTheSeal;
 
@@ -19,90 +21,71 @@ import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
-import quests.Q10295_SevenSignsSolinasTomb.Q10295_SevenSignsSolinasTomb;
 
-public class Q10296_SevenSignsPowerOfTheSeal extends Quest
+public final class Q10296_SevenSignsPowerOfTheSeal extends Quest
 {
-	private static final int EVIL = 32792;
-	private static final int ELCARDIA1 = 32787;
-	private static final int ELCARDIA = 32784;
-	private static final int HARDIN = 30832;
-	private static final int WOOD = 32593;
-	private static final int FRANZ = 32597;
-	private static final int[] NPCs =
-	{
-		EVIL,
-		ELCARDIA1,
-		ELCARDIA,
-		HARDIN,
-		WOOD,
-		FRANZ
-	};
-	private static final int ETISETINA = 18949;
+	// NPCs
+	private static final int ErissEvilThoughts = 32792;
+	private static final int Elcadia = 32784;
+	private static final int Elcadia_Support = 32787;
+	private static final int Hardin = 30832;
+	private static final int Wood = 32593;
+	private static final int Franz = 32597;
+	// Mobs
+	//private static final int EtisVanEtina = 18949;
+	// Items
+	private static final int CertificateOfDawn = 17265;
+	// Misc
+	private static final int MIN_LEVEL = 81;
 	
 	public Q10296_SevenSignsPowerOfTheSeal()
 	{
-		super(10296, Q10296_SevenSignsPowerOfTheSeal.class.getSimpleName(), "Q10296_SevenSignsPoweroftheSeal");
-		addStartNpc(EVIL);
-		
-		for (int id : NPCs)
-		{
-			addTalkId(id);
-		}
-		addKillId(ETISETINA);
+		super(10296, Q10296_SevenSignsPowerOfTheSeal.class.getSimpleName(), "Seven Signs, One Who Seeks the Power of the Seal");
+		addStartNpc(ErissEvilThoughts);
+		addTalkId(ErissEvilThoughts, Elcadia, Hardin, Wood, Franz, Elcadia_Support);
 	}
 	
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
 	{
-		String htmltext = event;
-		QuestState st = player.getQuestState(getName());
+		final QuestState st = getQuestState(player, false);
 		if (st == null)
 		{
-			return htmltext;
+			return null;
 		}
 		
-		int npcId = npc.getId();
-		int cond = st.getInt("cond");
-		if (npcId == ELCARDIA1)
+		String htmltext = event;
+		switch (event)
 		{
-			if (event.equalsIgnoreCase("teleport_out.htm") && (cond == 3))
-			{
-				player.setInstanceId(0);
-				player.teleToLocation(115930, -86992, -3397);
-			}
-		}
-		
-		if (event.equalsIgnoreCase("32792-03.htm"))
-		{
-			st.set("cond", "1");
-			st.setState(State.STARTED);
-			st.playSound("ItemSound.quest_accept");
-		}
-		else if (event.equalsIgnoreCase("32784-03.htm"))
-		{
-			st.set("cond", "4");
-		}
-		else if (event.equalsIgnoreCase("30832-03.htm"))
-		{
-			st.set("cond", "5");
-		}
-		else if (event.equalsIgnoreCase("32597-03.htm"))
-		{
-			if (player.getLevel() >= 81)
-			{
-				st.addExpAndSp(125000000, 12500000);
-				st.giveItems(17265, 1L);
-				st.unset("cond");
-				st.unset("EtisKilled");
-				st.setState(State.COMPLETED);
-				st.playSound("ItemSound.quest_finish");
-				st.exitQuest(false);
-			}
-			else
-			{
-				htmltext = "32597-00.htm";
-			}
+			case "32792-04.html":
+				st.startQuest();
+				break;
+			case "32784-03.html":
+				st.set("cond", "4");
+				st.playSound("ItemSound.quest_middle");
+				break;
+			case "see":
+				st.set("cond", "5");
+				st.playSound("ItemSound.quest_middle");
+				htmltext = "30832-03.html";
+				break;
+			case "presentation":
+				player.showQuestMovie(28);
+				break;
+			case "reward":
+				if (player.isSubClassActive())
+				{
+					htmltext = "32597-04.html";
+				}
+				else if (player.getLevel() >= MIN_LEVEL)
+				{
+					st.addExpAndSp(125000000, 12500000);
+					st.giveItems(CertificateOfDawn, 1);
+					htmltext = "32597-03.html";
+					st.unset("boss");
+					st.playSound("ItemSound.quest_finish");
+					st.exitQuest(false);
+				}
 		}
 		return htmltext;
 	}
@@ -111,126 +94,103 @@ public class Q10296_SevenSignsPowerOfTheSeal extends Quest
 	public String onTalk(L2Npc npc, L2PcInstance player)
 	{
 		String htmltext = getNoQuestMsg(player);
-		QuestState st = getQuestState(player, true);
+		final QuestState st = getQuestState(player, true);
 		if (st == null)
 		{
 			return htmltext;
 		}
 		
-		int npcId = npc.getId();
-		int cond = st.getInt("cond");
-		int EtisKilled = st.getInt("EtisKilled");
-		
-		if (st.getPlayer().isSubClassActive())
+		switch (npc.getId())
 		{
-			return "no_subclass-allowed.htm";
-		}
-		if (npcId == EVIL)
-		{
-			if (cond == 0)
-			{
-				QuestState qs = player.getQuestState(Q10295_SevenSignsSolinasTomb.class.getSimpleName());
-				if ((player.getLevel() >= 81) && (qs != null) && (qs.isCompleted()))
+			case ErissEvilThoughts:
+				switch (st.getState())
 				{
-					htmltext = "32792-01.htm";
+					case State.CREATED:
+						final QuestState SolinasTomb = player.getQuestState("Q10295_SevenSignsSolinasTomb");
+						if ((player.getLevel() >= 81) && SolinasTomb != null && SolinasTomb.isCompleted())
+						{
+							htmltext = "32792-01.htm";
+						}
+						else
+						{
+							htmltext = "32792-12.html";
+							st.exitQuest(true);
+						}
+					case State.STARTED:
+						switch (st.getCond())
+						{
+							case 1:
+								st.set("cond", "2");
+								st.playSound("ItemSound.quest_middle");
+								htmltext = "32792-05.html";
+								break;
+							case 2:
+								htmltext = "32792-06.html";
+						}
+						break;
+					case State.COMPLETED:
+						htmltext = "32792-02.html";
 				}
-				else
+				break;
+			case Elcadia:
+				if (st.isStarted())
 				{
-					htmltext = "32792-00.htm";
-					st.exitQuest(true);
+					switch (st.getCond())
+					{
+						case 3:
+							htmltext = "32784-01.html";
+							break;
+						case 4:
+							htmltext = "32784-04.html";
+					}
 				}
-			}
-			else if (cond == 1)
-			{
-				htmltext = "32792-04.htm";
-			}
-			else if (cond == 2)
-			{
-				htmltext = "32792-05.htm";
-			}
-			else if (cond >= 3)
-			{
-				htmltext = "32792-06.htm";
-			}
-		}
-		else if (npcId == ELCARDIA1)
-		{
-			if (cond == 1)
-			{
-				htmltext = "32787-01.htm";
-			}
-			else if (cond == 2)
-			{
-				if (EtisKilled == 0)
+				break;
+			case Hardin:
+				if (st.isStarted())
 				{
-					htmltext = "32787-01.htm";
+					switch (st.getCond())
+					{
+						case 4:
+							htmltext = "30832-01.html";
+							break;
+						case 5:
+							htmltext = "30832-03.html";
+					}
 				}
-				else
+				break;
+			case Wood:
+				if (st.isStarted())
 				{
-					st.set("cond", "3");
-					htmltext = "32787-02.htm";
+					if (st.getCond() == 5)
+					{
+						htmltext = "32593-01.html";
+					}
 				}
-			}
-			else if (cond >= 3)
-			{
-				htmltext = "32787-04.htm";
-			}
-		}
-		else if (npcId == ELCARDIA)
-		{
-			if (cond == 3)
-			{
-				htmltext = "32784-01.htm";
-			}
-			else if (cond >= 4)
-			{
-				htmltext = "32784-03.htm";
-			}
-		}
-		else if (npcId == HARDIN)
-		{
-			if (cond == 4)
-			{
-				htmltext = "30832-01.htm";
-			}
-			else if (cond == 5)
-			{
-				htmltext = "30832-04.htm";
-			}
-		}
-		else if (npcId == WOOD)
-		{
-			if (cond == 5)
-			{
-				htmltext = "32593-01.htm";
-			}
-		}
-		else if (npcId == FRANZ)
-		{
-			if (cond == 5)
-			{
-				htmltext = "32597-01.htm";
-			}
+				break;
+			case Franz:
+				if (st.isStarted())
+				{
+					if (st.getCond() == 5)
+					{
+						htmltext = "32597-01.html";
+					}
+				}
+				break;
+			case Elcadia_Support:
+				if (st.isStarted())
+				{
+					if ((st.getCond() == 2) && (st.getInt("boss") == 1))
+					{
+						st.set("cond", "3");
+						st.playSound("ItemSound.quest_middle");
+						htmltext = "32787-01.html";
+					}
+					else if (st.getCond() == 3)
+					{
+						htmltext = "32787-01.html";
+					}
+				}
 		}
 		return htmltext;
-	}
-	
-	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
-	{
-		QuestState st = player.getQuestState(getName());
-		if (st == null)
-		{
-			return super.onKill(npc, player, isPet);
-		}
-		
-		int npcId = npc.getId();
-		if (npcId == ETISETINA)
-		{
-			st.set("EtisKilled", "1");
-			player.showQuestMovie(30);
-		}
-		
-		return null;
 	}
 }
