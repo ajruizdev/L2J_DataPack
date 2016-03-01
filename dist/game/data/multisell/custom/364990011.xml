@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mercader del Abismo (Soul Crystals) -->
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+<npcs>
+<npc>1151600</npc>
+</npcs>
+	<item>
+		<ingredient count="100" id="1000001" />
+		<production count="1" id="9570" />
+	</item>
+	<item>
+		<ingredient count="100" id="1000001" />
+		<production count="1" id="9571" />
+	</item>
+	<item>
+		<ingredient count="100" id="1000001" />
+		<production count="1" id="9572" />
+	</item>
+	<item>
+		<ingredient count="120" id="1000001" />
+		<production count="1" id="10480" />
+	</item>
+	<item>
+		<ingredient count="120" id="1000001" />
+		<production count="1" id="10481" />
+	</item>
+	<item>
+		<ingredient count="120" id="1000001" />
+		<production count="1" id="10482" />
+	</item>
+	<item>
+		<ingredient count="250" id="1000001" />
+		<production count="1" id="13071" />
+	</item>
+	<item>
+		<ingredient count="250" id="1000001" />
+		<production count="1" id="13072" />
+	</item>
+	<item>
+		<ingredient count="250" id="1000001" />
+		<production count="1" id="13073" />
+	</item>
+	
+</list>
