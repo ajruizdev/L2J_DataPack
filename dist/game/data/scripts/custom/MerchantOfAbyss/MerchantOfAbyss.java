@@ -140,6 +140,7 @@ public class MerchantOfAbyss extends AbstractNpcAI {
 		case "buy-sa":
 			MultisellData.getInstance().separateAndSend(364990011, player, npc,
 					false);
+			break;
 		case "buy-xpsp":
 			MultisellData.getInstance().separateAndSend(364990012, player, npc,
 					false);
