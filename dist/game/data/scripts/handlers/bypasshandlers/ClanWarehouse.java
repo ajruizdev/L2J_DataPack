@@ -25,6 +25,7 @@ import com.l2jserver.gameserver.handler.IBypassHandler;
 import com.l2jserver.gameserver.model.ClanPrivilege;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
+import com.l2jserver.gameserver.model.actor.instance.L2AioNpcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2ClanHallManagerInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2WarehouseInstance;
@@ -49,7 +50,7 @@ public class ClanWarehouse implements IBypassHandler
 	@Override
 	public boolean useBypass(String command, L2PcInstance activeChar, L2Character target)
 	{
-		if (!(target instanceof L2WarehouseInstance) && !(target instanceof L2ClanHallManagerInstance))
+		if (!(target instanceof L2WarehouseInstance) && !(target instanceof L2ClanHallManagerInstance) && !(target instanceof L2AioNpcInstance))
 		{
 			return false;
 		}
