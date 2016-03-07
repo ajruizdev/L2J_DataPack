@@ -18,12 +18,15 @@
  */
 package handlers.voicedcommandhandlers;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 
 import com.l2jserver.gameserver.ThreadPoolManager;
 import com.l2jserver.gameserver.data.xml.impl.NpcData;
+import com.l2jserver.gameserver.datatables.SkillData;
 import com.l2jserver.gameserver.datatables.SpawnTable;
 import com.l2jserver.gameserver.handler.IVoicedCommandHandler;
 import com.l2jserver.gameserver.model.L2Spawn;
@@ -44,8 +47,11 @@ public class InvokeExiledDivine implements IVoicedCommandHandler {
 	private static final String[] _voicedCommands = { "divine" };
 
 	private static final int EXILED_DIVINE_ID = 1151602;
+	
+	private static final long RESSURECTION_DELAY = 1200000; // 20 min (ms)
 
 	private static final Map<Integer, ScheduledFuture<?>> PLAYERS_SUMMON = new HashMap<Integer, ScheduledFuture<?>>();
+	private static final Map<Integer, Long> NEXT_RESS = new HashMap<Integer, Long>();
 
 	@Override
 	public boolean useVoicedCommand(String command, L2PcInstance activeChar,
@@ -53,7 +59,7 @@ public class InvokeExiledDivine implements IVoicedCommandHandler {
 
 		if (!activeChar.isVip()) {
 			activeChar
-					.sendMessage("Puedes usar esta funcion durante un mes si realizas una donacion por una cantidad igual o superior a 5 euros. Visita www.l2abyss.net para mas informacion.");
+					.sendMessage("[Divine Exiliado] Alianza Lvl: 0. Puedes aumentar tu nivel de alianza realizando una donacion igual o superior a 5 euros. Visita www.l2abyss.net para mas informacion.");
 			return false;
 		}
 
@@ -87,12 +93,6 @@ public class InvokeExiledDivine implements IVoicedCommandHandler {
 			return false;
 		}
 
-		if (activeChar.isDead()) {
-			activeChar
-					.sendMessage("No puedes invocar al Divine Exiliado estando muerto.");
-			return false;
-		}
-
 		if (activeChar.getKarma() > 0) {
 			activeChar
 					.sendMessage("No puedes invocar al Divine Exiliado siendo PK.");
@@ -117,13 +117,31 @@ public class InvokeExiledDivine implements IVoicedCommandHandler {
 			return false;
 		}
 
-		if (PLAYERS_SUMMON.get(activeChar.getObjectId()) != null) {
-			if (!PLAYERS_SUMMON.get(activeChar.getObjectId()).isDone()) {
+		if (PLAYERS_SUMMON.get(activeChar.getObjectId()) != null) 
+		{
+			if (!PLAYERS_SUMMON.get(activeChar.getObjectId()).isDone()) 
+			{
 				activeChar
 						.sendMessage("El Divine Exiliado ya ha sido invocado.");
 				return false;
 			}
 		}
+
+		if (activeChar.isDead()) 
+		{
+			if (activeChar.getVipLevel() < 2)
+			{
+				activeChar.sendMessage("Necesitas alianza lvl 2 para que te resucite!");
+				return false;
+			}
+			else if (!canRessurect(activeChar))
+			{
+				activeChar.sendMessage("El Divine Exiliado puede resucitarte una vez cada 20 minutos!");
+				return false;
+			}
+		}
+		
+		activeChar.sendMessage("[Divine Exiliado] Alianza Lvl: " + activeChar.getVipLevel() + " hasta el " + getDate(activeChar.getVipExpiryTime()) + ".");
 
 		L2NpcTemplate template;
 		template = NpcData.getInstance().getTemplate(EXILED_DIVINE_ID);
@@ -134,7 +152,6 @@ public class InvokeExiledDivine implements IVoicedCommandHandler {
 			spawn = new L2Spawn(template);
 
 			spawn.setLocation(activeChar.getLocation());
-			spawn.setHeading(-activeChar.getHeading());
 			spawn.setAmount(1);
 			spawn.setCustom(true);
 			spawn.setRespawnDelay(0);
@@ -149,14 +166,32 @@ public class InvokeExiledDivine implements IVoicedCommandHandler {
 			spawn.init();
 
 			final L2Npc npc = spawn.getLastSpawn();
-			Broadcast.toKnownPlayers(npc, new NpcSay(npc.getObjectId(),
-					Say2.ALL, npc.getTemplate().getDisplayId(),
-					"Para servirte, " + activeChar.getName()));
+			npc.setTarget(activeChar);
+			npc.setIsRunning(true);
+			npc.getAI().startFollow(activeChar);
+			
+			Broadcast.toKnownPlayers(npc, new NpcSay(npc.getObjectId(), Say2.ALL, npc.getTemplate().getDisplayId(),
+					"Para servirte, " + activeChar.getName() + "."));
 
-			PLAYERS_SUMMON
-					.put(activeChar.getObjectId(),
-							ThreadPoolManager.getInstance().scheduleGeneral(
-									new DeleteSpawn(npc), 30000));
+			int summonTime = 30000; // 30 seconds
+			
+			if (activeChar.getVipLevel() == 2)
+			{
+				summonTime = 120000; // 2 min
+				if (activeChar.isDead())
+				{
+					Broadcast.toKnownPlayers(npc, new NpcSay(npc.getObjectId(), Say2.ALL, npc.getTemplate().getDisplayId(),
+							"Deja que te ayude, " + activeChar.getName() + "!"));
+					
+					activeChar.reviveRequest(activeChar, SkillData.getInstance().getSkill(2049, 1), false, 100);
+					NEXT_RESS.put(activeChar.getObjectId(), System.currentTimeMillis() + RESSURECTION_DELAY);
+				}
+			}
+			
+			PLAYERS_SUMMON.put(activeChar.getObjectId(),
+					ThreadPoolManager.getInstance().scheduleGeneral(
+							new DeleteSpawn(npc), summonTime));
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -180,6 +215,20 @@ public class InvokeExiledDivine implements IVoicedCommandHandler {
 			_npc.deleteMe();
 			SpawnTable.getInstance().deleteSpawn(_npc.getSpawn(), false);
 		}
+	}
+	
+	private static boolean canRessurect(L2PcInstance player)
+	{
+		return NEXT_RESS.get(player.getObjectId()) == null || NEXT_RESS.get(player.getObjectId()) <= System.currentTimeMillis();
+	}
+	
+	private String getDate(long time)
+	{
+		Calendar c = Calendar.getInstance();
+		c.setTimeInMillis(time);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		
+		return dateFormat.format(c.getTime());
 	}
 
 	@Override

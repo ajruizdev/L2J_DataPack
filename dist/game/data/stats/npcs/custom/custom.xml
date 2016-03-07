@@ -114,7 +114,7 @@
 			<height normal="22" />
 		</collision>
 	</npc>
-	<npc id="1151602" level="85" displayId="13116" name="Divine Exiliado" usingServerSideName="true" title="Buffer Legendario" usingServerSideTitle="true" type="L2Npc">
+	<npc id="1151602" level="85" displayId="13116" name="Divine Exiliado" usingServerSideName="true" title="Buffer Legendario" usingServerSideTitle="true" type="L2AioNpc">
 		<!-- L2Abyss.NET -->
 		<sex>MALE</sex>
 		<stats str="50" int="50" dex="50" wit="50" con="50" men="50">
